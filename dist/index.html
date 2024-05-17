@@ -67,7 +67,10 @@
         </div>
         <div id="cartItems">
         </div>
+        <div id="totalPrice" class="text-2xl font-bold"></div>
+
         <button onclick="sendCartToCheckout()" class="border px-4 py-2 rounded-md text-lg font-semibold bg-[#0068C8] text-white" id="checkout-btn">Checkout</button>
+        <button onclick="ViewCart()" class="border px-4 py-2 rounded-md text-lg font-semibold bg-[#0068C8] text-white" id="ViewCart-btn">ViewCart</button>
 
       </div>
 
@@ -526,7 +529,6 @@ const addAddToCartListeners = () => {
 
 callApi();
 
-
 let cart = [];
 
 function saveCartToLocalStorage() {
@@ -539,45 +541,34 @@ function loadCartFromLocalStorage() {
         cart = JSON.parse(storedCart);
         updateCart();
         updateCartCount();
+        updateTotalPrice(); // Update the total price when the cart is loaded
     }
 }
 
 function updateCartCount() {
     let totalCount = 0;
-    // Calculate the total quantity of items in the cart
     cart.forEach(item => {
         totalCount += item.quantity;
     });
 
     const cartCountElement = document.getElementById('cartCount');
-    // Update the cart count notification
     cartCountElement.textContent = totalCount > 0 ? totalCount : "0";
-
-    // Always show the badge
     cartCountElement.classList.remove('hidden');
 }
 
-
-
-
 function removeFromCart(itemId) {
-        // Find the index of the item in the cart array
-        const itemIndex = cart.findIndex(item => item.id === itemId);
-
-        if (itemIndex !== -1) {
-            // Remove the item from the cart array
-            cart.splice(itemIndex, 1);
-        }
-
-        // Update the cart display
-        updateCart();
-        // Update the cart count
-        updateCartCount();
+    const itemIndex = cart.findIndex(item => item.id === itemId);
+    if (itemIndex !== -1) {
+        cart.splice(itemIndex, 1);
     }
+    updateCart();
+    updateCartCount();
+    updateTotalPrice(); // Update the total price when an item is removed
+}
+
 function updateCart() {
     const cartItemsContainer = document.getElementById('cartItems');
     cartItemsContainer.innerHTML = '';
-
     cart.forEach(item => {
         const cartItemElement = document.createElement('div');
         cartItemElement.classList.add('flex', 'items-center', 'border-b', 'py-2');
@@ -588,13 +579,11 @@ function updateCart() {
                     <p class="text-xl font-semibold mr-2">${item.name}</p>
                     <p id="quantity-${item.id}" class="mx-2 text-xl font-semibold">${item.quantity}</p>
                     <p class="text-gray-600 text-xl font-semibold">$${item.price}</p>
-                <button class="deleteButton text-xl text-red-500 " data-id="${item.id}"><i class="ri-delete-bin-6-line"></i></button>
+                <button class="deleteButton text-xl text-red-500" data-id="${item.id}"><i class="ri-delete-bin-6-line"></i></button>
                 </div>
-                
             </div>
         `;
 
-        // Add event listener to delete button
         const deleteButton = cartItemElement.querySelector('.deleteButton');
         deleteButton.addEventListener('click', function() {
             const itemId = this.getAttribute('data-id');
@@ -603,10 +592,30 @@ function updateCart() {
 
         cartItemsContainer.appendChild(cartItemElement);
     });
-
     saveCartToLocalStorage();
 }
+function updateTotalPrice() {
+    let totalPrice = 0;
+    cart.forEach(item => {
+        totalPrice += item.price * item.quantity;
+    });
+    const totalPriceElement = document.getElementById('totalPrice');
+    totalPriceElement.textContent = `Total Price: $${totalPrice.toFixed(2)}`;
+    return totalPrice; // Return the total price for use in checkout
+}
 
+function addToCart(id, name, price, image) {
+    const existingItemIndex = cart.findIndex(item => item.id === id);
+    if (existingItemIndex !== -1) {
+        cart[existingItemIndex].quantity++;
+    } else {
+        const newItem = { id, name, price, image, quantity: 1 };
+        cart.push(newItem);
+    }
+    updateCart();
+    updateCartCount();
+    updateTotalPrice(); // Update the total price when an item is added
+}
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -619,65 +628,18 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
-
-function addToCart(id, name, price, image) {
-    const existingItemIndex = cart.findIndex(item => item.id === id);
-
-    if (existingItemIndex !== -1) {
-        cart[existingItemIndex].quantity++;
-    } else {
-        const newItem = { id, name, price, image, quantity: 1 };
-        cart.push(newItem);
-    }
-
-    updateCart();
-    updateCartCount();
-}
-    
-// Call this function whenever the page loads to set up event listeners and fetch product data
-document.addEventListener('DOMContentLoaded', function () {
-  // Your existing code for fetching products and adding event listeners
-
-  // Add event listener to "Close Cart" button
-  const closeCartButton = document.getElementById('close-cart');
-  if (closeCartButton) {
-    closeCartButton.addEventListener('click', function () {
-      // Hide the cart overlay
-      document.getElementById('cart-overlay').classList.add('hidden');
-    });
-  }
-});
-// Call this function whenever the page loads to set up event listeners and fetch product data
-document.addEventListener('DOMContentLoaded', function () {
-    // Your existing code for fetching products and adding event listeners
-
-    // Add event listener to "Close Cart" button
-    const closeCartButton = document.getElementById('close-cart');
-    if (closeCartButton) {
-        closeCartButton.addEventListener('click', function () {
-            // Hide the cart overlay
-            document.getElementById('cart-overlay').classList.add('hidden');
-        });
-    }
-});
-
-if(typeof(Storage)!= "undefined"){
-  localStorage.setItem("key","value");
-  // Retrieve data
-  var data = localStorage.getItem("key");
-    console.log(data); // Output: value
-
-    // Remove data
-    localStorage.removeItem("key");
-} else {
-    // Sorry! No Web Storage support..
-    console.log("Local storage is not supported by your browser.");
-
-}
 function sendCartToCheckout() {
     const cartData = JSON.stringify(cart);
-    const checkoutUrl = "checkout.html?cart=" + encodeURIComponent(cartData);
+    const totalPrice = updateTotalPrice(); // Ensure total price is up-to-date
+    const checkoutUrl = `checkout.html?cart=${encodeURIComponent(cartData)}&total=${totalPrice.toFixed(2)}`;
     window.location.href = checkoutUrl;
+}
+
+function ViewCart() {
+    const cartData = JSON.stringify(cart);
+    const totalPrice = updateTotalPrice(); // Ensure total price is up-to-date
+    const viewUrl = `cart.html?cart=${encodeURIComponent(cartData)}&total=${totalPrice.toFixed(2)}`;
+    window.location.href = viewUrl;
 }
 
 
