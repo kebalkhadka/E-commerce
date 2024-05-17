@@ -17,3 +17,5 @@ const cartBtn = document.getElementById("cart");
                 overlay.style.backgroundColor = "transparent";
             }, 400); // Adjust timing to match animation duration
         };
+
+
