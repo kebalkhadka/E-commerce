@@ -1,0 +1,28 @@
+{
+    "products": [
+        {
+            "id": "1",
+            "name": "Macbook",
+            "details": "Laptop 14\" 8-core CPU, M2 2022, 8GB | 256GB,",
+            "category": "Laptop",
+            "description": "Best laptop in town",
+            "price": "1100.00",
+            "image": "../images/macbook.jpg",
+            "image1": "../images/macbook1.jpg",
+            "image2": "../images/macbook2.jpg",
+            "image3": "../images/macbook3.jpg"
+        },
+        {
+            "id": "2",
+            "name": "Laptop 15.6inch",
+            "details": "Ultra Thin Laptop, Intel Celeron,",
+            "category": "Laptop",
+            "description": "best in town",
+            "price": "1200.00",
+            "image": "../images/laptop.jpg",
+            "image1": "../images/laptop1.jpg",
+            "image2": "../images/laptop2.jpg",
+            "image3": "../images/laptop3.jpg"
+        }
+    ]
+}

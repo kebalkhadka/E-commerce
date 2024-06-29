@@ -68,7 +68,8 @@
         </button>
       </div>
       <div id="cartItems">
-      <button class="border px-4 py-2 rounded-md text-lg font-semibold bg-[#0068C8] text-white"id="checkout-btn">Checkout</button>
+        <button class="border px-4 py-2 rounded-md text-lg font-semibold bg-[#0068C8] text-white"
+          id="checkout-btn">Checkout</button>
       </div>
     </div>
 
@@ -184,7 +185,7 @@
 
   </footer>
 
-  <script>
+  <!-- <script>
     function initializeImageHover() {
       const allHoverImages = document.querySelectorAll('.hover-container div img');
       const imgContainer = document.querySelector('.img-container');
@@ -292,11 +293,95 @@
       mainImg.addEventListener('mouseLeave', MouseLeave)
     };
     fetchProductDetails();
-  
 
-  </script>
+
+  </script> -->
   <script src="./cart.js"></script>
   <script src="./product.js"></script>
+
+  <script>
+    // Function to get product details by ID from products.json
+    const getProductById = async (id) => {
+      try {
+        const response = await fetch('product.json');
+        const data = await response.json();
+        return data.products.find(product => product.id === id);
+      } catch (error) {
+        console.error('Failed to fetch product details:', error);
+      }
+    };
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+
+    const fetchProductDetails = async () => {
+      const product = await getProductById(productId);
+
+      if (product) {
+        // Populate the HTML with product details
+        const productDetailDiv = document.getElementById("productDetail");
+        productDetailDiv.innerHTML = `
+                    <div class="main-wrapper flex items-center justify-center min-h-screen bg-slate-100">
+                        <div class="container max-w-4xl p-8 bg-white rounded-lg shadow-lg">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div class="product-div-left">
+                                    <div class="img-container border overflow-hidden img-zoom">
+                                        <img src="${product.image}" alt="${product.name}" class="w-full object-cover rounded-lg main-img">
+                                    </div>
+                                    <div class="hover-container flex justify-center mt-4 gap-4">
+                                        <div><img src="${product.image1}" alt="${product.name}" class="hover-img rounded-md border border-gray-300 h-32"></div>
+                                        <div><img src="${product.image2}" alt="${product.name}" class="hover-img rounded-md border border-gray-300 h-32"></div>
+                                        <div><img src="${product.image3}" alt="${product.name}" class="hover-img rounded-md border border-gray-300 h-32"></div>
+                                    </div>
+                                </div>
+                                <div class="product-div-right">
+                                    <span class="product-category text-xl mb-4 text-[#848484]">${product.category}</span>
+                                    <div class="product-name text-2xl mb-2 font-semibold">${product.name}</div>
+                                    <div class="product-rating flex items-center mt-1 mb-4">
+                                        <span><i class="ri-star-fill text-yellow-500"></i></span>
+                                        <span><i class="ri-star-fill text-yellow-500"></i></span>
+                                        <span><i class="ri-star-fill text-yellow-500"></i></span>
+                                        <span><i class="ri-star-fill text-yellow-500"></i></span>
+                                        <span><i class="ri-star-half-line text-yellow-500"></i></span>
+                                        <span class="font-semi-bold pr-2">1 Review</span>
+                                        <div class="font-[18px] text-green-500 px-2 border border-[#0FB232] rounded py-0.5 pr-2">14 IN STOCK</div>
+                                    </div>
+                                    <span class="product-price text-4xl font-semibold text-red-500">$${product.price}</span>
+                                    <p class="product-description text-md mt-4">${product.description}</p>
+                                    <div class="bg-[#E8F3FE] border rounded-md px-8 py-5 font-md text-md mt-6">
+                                        <ul>
+                                            <li class="list-disc text-[#0068C8]">Estimated delivery time 2-4 days</li>
+                                            <li class="list-disc text-[#0068C8]">12 months warranty at Genuine Warranty Center.</li>
+                                            <li class="list-disc text-[#0068C8]">Whats in the box: charging cable and block</li>
+                                        </ul>
+                                    </div>
+                                    <div class="mt-5">
+                                        <button id="addToCartButton" class="add-to-cart font-bold text-2xl px-20 border-[2px] border-[#0068C8] rounded py-2.5 hover:text-white hover:bg-[#0068C8]"
+        data-id="1" data-name="Product Name" data-price="100.00" data-image="path/to/image.jpg">ADD TO CART</button>
+                                    </div>  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+        // Image hover functionality
+        const mainImg = document.querySelector('.main-img');
+        const hoverImgs = document.querySelectorAll('.hover-img');
+
+        hoverImgs.forEach(hoverImg => {
+          hoverImg.addEventListener('mouseenter', (event) => {
+            mainImg.src = event.target.src;
+          });
+        });
+
+      } else {
+        console.error('Product not found');
+      }
+    };
+
+    fetchProductDetails();
+  </script>
 </body>
 
 </html>

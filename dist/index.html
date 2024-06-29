@@ -69,8 +69,11 @@
         </div>
         <div id="totalPrice" class="text-2xl font-bold"></div>
 
-        <button onclick="sendCartToCheckout()" class="border px-4 py-2 rounded-md text-lg font-semibold bg-[#0068C8] text-white" id="checkout-btn">Checkout</button>
-        <button onclick="ViewCart()" class="border px-4 py-2 rounded-md text-lg font-semibold bg-[#0068C8] text-white" id="ViewCart-btn">ViewCart</button>
+        <button onclick="sendCartToCheckout()"
+          class="border px-4 py-2 rounded-md text-lg font-semibold bg-[#0068C8] text-white"
+          id="checkout-btn">Checkout</button>
+        <button onclick="ViewCart()" class="border px-4 py-2 rounded-md text-lg font-semibold bg-[#0068C8] text-white"
+          id="ViewCart-btn">ViewCart</button>
 
       </div>
 
@@ -101,7 +104,7 @@
     </nav>
 
     <!------------Carousel-------------------->
-    <section class="max-w-[1399px] m-auto pb-2 ">
+    <!-- <section class="max-w-[1399px] m-auto pb-2 ">
       <div class="flex px-12 justify-around gap-2" id="sliderr">
         <div class="game-link">
 
@@ -141,77 +144,53 @@
           </a>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <div id="carousel">
       <div class="swiper mySwiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide bg-[#2C2C46] flex justify-around">
+          <div class="swiper-slide bg-[#2C2C46] flex flex-col md:flex-row justify-around items-center p-4">
             <div class="text-white text-left">
               <div class="inline-block bg-red-500 text-white px-5 py-1 rounded">
                 <p class="text-center">WEEKEND DEAL</p>
               </div>
-
-              <h1 class="py-6 font-bold text-5xl ">All New<br>
-                FOR A Better You</h1>
-              <p class="leading-3">AMAZING DISCOUNT AND DEALS<br>
-              <div class="mt-2">From <span class="text-yellow-500 text-3xl font-bold">$399.99</span></div>
-              </p>
-              <br>
-              <button class=" bg-[#0072DA] text-white rounded px-10 py-3.5 text-sm font-bold hover:bg-blue-700  ">SHOP
-                NOW</button>
-              </h5>
+              <h1 class="py-6 font-bold text-3xl md:text-5xl">All New<br> FOR A Better You</h1>
+              <p class="leading-5">AMAZING DISCOUNT AND DEALS</p>
+              <div class="mt-2 text-yellow-500 text-2xl md:text-3xl font-bold">From $399.99</div>
+              <button class="bg-[#0072DA] text-white rounded px-6 py-3 text-sm font-bold hover:bg-blue-700 mt-4">SHOP NOW</button>
             </div>
             <div>
-              <img src="../images/slide1-watches.png" alt="slider">
+              <img src="../images/slide1-watches.png" alt="slider" class="w-full md:w-auto">
             </div>
           </div>
-          <div class="swiper-slide bg-[#192C57] flex justify-around">
+          <div class="swiper-slide bg-[#192C57] flex flex-col md:flex-row justify-around items-center p-4">
             <div class="text-white text-left">
-
-              <div class="inline-block bg-red-500 text-white px-5 py-1 rounded  ">
+              <div class="inline-block bg-red-500 text-white px-5 py-1 rounded">
                 <p class="text-center">TODAY DEAL</p>
               </div>
-
-              <h1 class="py-6 font-bold text-5xl ">Best ipad Deals<br>
-                At A Glance</h1>
-              <p class="leading-3">AMAZING DISCOUNT AND DEALS<br>
-              <div class="mt-2">From <span class="text-yellow-500 text-3xl font-bold">$399.99</span></div>
-              </p>
-              <br>
-              <button class=" bg-blue-500 text-white rounded px-10 py-3.5 text-sm font-bold  ">SHOP NOW</button>
-              </h5>
-
-
+              <h1 class="py-6 font-bold text-3xl md:text-5xl">Best ipad Deals<br> At A Glance</h1>
+              <p class="leading-5">AMAZING DISCOUNT AND DEALS</p>
+              <div class="mt-2 text-yellow-500 text-2xl md:text-3xl font-bold">From $399.99</div>
+              <button class="bg-blue-500 text-white rounded px-6 py-3 text-sm font-bold mt-4">SHOP NOW</button>
             </div>
             <div>
-              <img src="../images/slide1-ipad.png" alt="slider">
+              <img src="../images/slide1-ipad.png" alt="slider" class="w-full md:w-auto">
             </div>
           </div>
-          <div class="swiper-slide bg-[#202F22] flex justify-around">
+          <div class="swiper-slide bg-[#202F22] flex flex-col md:flex-row justify-around items-center p-4">
             <div class="text-white text-left">
-
-              <div class="inline-block bg-red-500 text-white px-5 py-1 rounded  ">
+              <div class="inline-block bg-red-500 text-white px-5 py-1 rounded">
                 <p class="text-center">BIG SALE</p>
               </div>
-
-              <h1 class="py-6 font-bold text-5xl ">Iphone On Sale At<br>
-                Up To 25% Off</h1>
-              <p class="leading-3">BUY TOP PRODUCTS ON SHOP<br>
-              <div class="mt-2">From <span class="text-yellow-500 text-3xl font-bold">$399.99</span></div>
-              </p>
-              <br>
-              <button class=" bg-blue-500 text-white rounded px-10 py-3.5 text-sm font-bold  ">SHOP NOW</button>
-              </h5>
-
-
+              <h1 class="py-6 font-bold text-3xl md:text-5xl">Iphone On Sale At<br> Up To 25% Off</h1>
+              <p class="leading-5">BUY TOP PRODUCTS ON SHOP</p>
+              <div class="mt-2 text-yellow-500 text-2xl md:text-3xl font-bold">From $399.99</div>
+              <button class="bg-blue-500 text-white rounded px-6 py-3 text-sm font-bold mt-4">SHOP NOW</button>
             </div>
-
-            <div id="iphone" class="">
-              <img src="../images/slide1-iphone.png " alt="slider" class=" mt-[300px] ml-[70px]">
+            <div id="iphone">
+              <img src="../images/slide1-iphone.png" alt="slider" class="w-full md:w-auto mt-4 md:mt-[300px] ml-0 md:ml-[70px]">
             </div>
           </div>
-
         </div>
         <div class="swiper-pagination"></div>
       </div>
@@ -353,19 +332,21 @@
     </div>
   </div>
 
-  <div class=" md:m-24">
-    <div class=" font-semibold text-4xl ">Best Sellers</div>
-    <div id="producthere" class=" mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 md:gap-8">
-
-    </div>
-
+  <div class="md:m-24">
+    <div class="font-semibold text-4xl">Best Sellers</div>
+    <div id="producthere" class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 md:gap-8"></div>
   </div>
-
-
-
-  <!------------Footer---------------->
-  <footer class="bg-[#F7F7F8] p-24 flex gap-12 ">
-    <div class="space-y-5 w-[350px]">
+  <div id="toast" class="hidden">
+    <div id="toastContent">
+      <span id="toastName"></span>
+      <span id="toastCategory"></span>
+      <img id="toastImage" src="" alt="">
+    </div>
+    <button id="closeToast">Close</button>
+  </div>
+  <!-- Footer -->
+  <footer class="bg-[#F7F7F8] p-6 md:p-12 lg:p-24 flex flex-col lg:flex-row gap-12">
+    <div class="space-y-5 w-full lg:w-[350px]">
       <div>
         <h1 class="font-bold text-xl">TechExp</h1>
         <p class="text-zinc-600 mt-4">TechExp is the biggest market of electronic products. Get your daily needs from
@@ -373,12 +354,11 @@
       </div>
       <div class="flex gap-2 text-gray-500">
         <i class="ri-map-pin-line"></i>
-        <address> Green St.Huntington ohaio beach ontario, NY 11746 KY 4783, USA.</address>
+        <address>Green St. Huntington ohaio beach ontario, NY 11746 KY 4783, USA.</address>
       </div>
       <div class="flex gap-2 text-gray-500">
         <i class="ri-mail-send-line"></i>
-        <p>****@gmail.com</p>
-
+        <p>TechExpress@gmail.com</p>
       </div>
       <div class="flex gap-2 text-gray-500">
         <i class="ri-phone-line"></i>
@@ -386,7 +366,7 @@
       </div>
     </div>
 
-    <div class="flex-1 ">
+    <div class="flex-1 w-full lg:w-auto">
       <h4 class="font-semibold text-2xl">Company</h4>
       <ul class="mt-4 space-y-3">
         <li><a href="#" class="text-md text-gray-500">About Us</a></li>
@@ -398,7 +378,7 @@
       </ul>
     </div>
 
-    <div class="flex-1">
+    <div class="flex-1 w-full lg:w-auto">
       <h4 class="font-semibold text-2xl">Category</h4>
       <ul class="mt-4 space-y-3">
         <li><a href="#" class="text-md text-gray-500">Home Appliance</a></li>
@@ -410,7 +390,7 @@
       </ul>
     </div>
 
-    <div class="space-y-4">
+    <div class="space-y-4 w-full lg:w-auto">
       <h4 class="font-semibold text-2xl">Newsletter</h4>
       <div class="space-y-4">
         <p class="text-gray-500 mb-1">Subscribe to get in touch</p>
@@ -444,205 +424,204 @@
         </a>
       </div>
     </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="./index.js"></script>
-    <script src="./cart.js"></script>
-    <script src="./product.js"></script>
-    <script>
-      var swiper = new Swiper(".mySwiper", {
-        autoplay: {
-          delay: 5000,
-          disableOnInteraction: false,
-        },
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true, // Enable clickable pagination
-        },
-        navigation: {
-          nexEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        }
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="./index.js"></script>
+  <script src="./cart.js"></script>
+  <script src="./product.js"></script>
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true, // Enable clickable pagination
+      },
+      navigation: {
+        nexEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      }
 
-      });
-    </script>   
-    <script>
-      
-const api = "http://localhost:3000/Backend/fetchAllProducts.php";
-
-
-
-const callApi = async () => {
-  try {
-    const req = await fetch(api);
-    const data = await req.json();
-    const sortedData = data.sort((a, b) => a.id - b.id);
-    const targetDiv = document.getElementById("producthere");
-
-    data.forEach((item) => {
-      const productItem = document.createElement("div");
-      productItem.classList.add("group", "relative", "border", "box-shadow", "product-item");
-      productItem.innerHTML = `     
-      <div class="border">
-                <div><img src="${item.image}" alt="" class="w-[300px] h-[300px]"></div>
-                <a href="productdetail.html?id=${item.id}" class="font-semibold text-xl pb-1.5 hover:text-[#0068C8] cursor-pointer">${item.name}</a>
-                <div class="pb-2.5">
-                    <i class="ri-star-fill text-yellow-400 text-xl"></i>
-                    <i class="ri-star-fill text-yellow-400 text-xl"></i>
-                    <i class="ri-star-fill text-yellow-400 text-xl"></i>
-                    <i class="ri-star-fill text-yellow-400 text-xl"></i>
+    });
+  </script>
+  <script>
+    /*
+    const api = "http://localhost:3000/Backend/fetchAllProducts.php";
+    const callApi = async () => {
+      try {
+        const req = await fetch(api);
+        const data = await req.json();
+        const sortedData = data.sort((a, b) => a.id - b.id);
+        const targetDiv = document.getElementById("producthere");
+    
+        data.forEach((item) => {
+          const productItem = document.createElement("div");
+          productItem.classList.add("group", "relative", "border", "box-shadow", "product-item");
+          productItem.innerHTML = `     
+          <div class="border">
+                    <div><img src="${item.image}" alt="" class="w-[300px] h-[300px]"></div>
+                    <a href="productdetail.html?id=${item.id}" class="font-semibold text-xl pb-1.5 hover:text-[#0068C8] cursor-pointer">${item.name}</a>
+                    <div class="pb-2.5">
+                        <i class="ri-star-fill text-yellow-400 text-xl"></i>
+                        <i class="ri-star-fill text-yellow-400 text-xl"></i>
+                        <i class="ri-star-fill text-yellow-400 text-xl"></i>
+                        <i class="ri-star-fill text-yellow-400 text-xl"></i>
+                    </div>
+                    <div class=" text-2xl font-bold  text-red-500 pb-2">$${item.price}</div>
+                    <button class="add-to-cart font-bold tex-2xl px-20 border-[2px] border-[#0068C8] rounded py-2.5 hover:text-white hover:bg-[#0068C8]" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}" data-image="${item.image}">ADD TO CART</button>
+                    
                 </div>
-                <div class=" text-2xl font-bold  text-red-500 pb-2">$${item.price}</div>
-                <button class="add-to-cart font-bold tex-2xl px-20 border-[2px] border-[#0068C8] rounded py-2.5 hover:text-white hover:bg-[#0068C8]" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}" data-image="${item.image}">ADD TO CART</button>
-                
-            </div>
-        `;
-      targetDiv.appendChild(productItem);
-    });
-
-    // Add event listeners to "ADD TO CART" buttons
-    addAddToCartListeners();
-
-  } catch (error) {
-    console.error('Failed to fetch product details:', error);
-  }
-};
-
-const addAddToCartListeners = () => {
-  const addToCartButtons = document.querySelectorAll('.add-to-cart');
-  addToCartButtons.forEach(button => {
-    button.addEventListener('click', function (event) {
-      event.preventDefault(); // Prevent default link behavior
-      const target = event.currentTarget; // Use currentTarget to refer to the button
-      const productItem = target.closest('.product-item'); // Find the closest parent with the class 'product-item'
-
-      // Retrieve data attributes from the product item
-      const itemId = target.getAttribute('data-id');
-      const itemName = target.getAttribute('data-name');
-      const itemImage = productItem.querySelector('img').getAttribute('src'); // Get the src attribute of the img element
-      const itemPrice = parseFloat(target.getAttribute('data-price'));
-
-      addToCart(itemId, itemName, itemPrice, itemImage);
-    });
-  });
-};
-
-callApi();
-
-let cart = [];
-
-function saveCartToLocalStorage() {
-    localStorage.setItem("cart", JSON.stringify(cart));
-}
-
-function loadCartFromLocalStorage() {
-    const storedCart = localStorage.getItem("cart");
-    if (storedCart) {
-        cart = JSON.parse(storedCart);
+            `;
+          targetDiv.appendChild(productItem);
+        });
+    
+        // Add event listeners to "ADD TO CART" buttons
+        addAddToCartListeners();
+    
+      } catch (error) {
+        console.error('Failed to fetch product details:', error);
+      }
+    };
+    
+    const addAddToCartListeners = () => {
+      const addToCartButtons = document.querySelectorAll('.add-to-cart');
+      addToCartButtons.forEach(button => {
+        button.addEventListener('click', function (event) {
+          event.preventDefault(); // Prevent default link behavior
+          const target = event.currentTarget; // Use currentTarget to refer to the button
+          const productItem = target.closest('.product-item'); // Find the closest parent with the class 'product-item'
+    
+          // Retrieve data attributes from the product item
+          const itemId = target.getAttribute('data-id');
+          const itemName = target.getAttribute('data-name');
+          const itemImage = productItem.querySelector('img').getAttribute('src'); // Get the src attribute of the img element
+          const itemPrice = parseFloat(target.getAttribute('data-price'));
+    
+          addToCart(itemId, itemName, itemPrice, itemImage);
+        });
+      });
+    };
+    
+    callApi();
+    
+    let cart = [];
+    
+    function saveCartToLocalStorage() {
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }
+    
+    function loadCartFromLocalStorage() {
+        const storedCart = localStorage.getItem("cart");
+        if (storedCart) {
+            cart = JSON.parse(storedCart);
+            updateCart();
+            updateCartCount();
+            updateTotalPrice(); // Update the total price when the cart is loaded
+        }
+    }
+    
+    function updateCartCount() {
+        let totalCount = 0;
+        cart.forEach(item => {
+            totalCount += item.quantity;
+        });
+    
+        const cartCountElement = document.getElementById('cartCount');
+        cartCountElement.textContent = totalCount > 0 ? totalCount : "0";
+        cartCountElement.classList.remove('hidden');
+    }
+    
+    function removeFromCart(itemId) {
+        const itemIndex = cart.findIndex(item => item.id === itemId);
+        if (itemIndex !== -1) {
+            cart.splice(itemIndex, 1);
+        }
         updateCart();
         updateCartCount();
-        updateTotalPrice(); // Update the total price when the cart is loaded
+        updateTotalPrice(); // Update the total price when an item is removed
     }
-}
-
-function updateCartCount() {
-    let totalCount = 0;
-    cart.forEach(item => {
-        totalCount += item.quantity;
-    });
-
-    const cartCountElement = document.getElementById('cartCount');
-    cartCountElement.textContent = totalCount > 0 ? totalCount : "0";
-    cartCountElement.classList.remove('hidden');
-}
-
-function removeFromCart(itemId) {
-    const itemIndex = cart.findIndex(item => item.id === itemId);
-    if (itemIndex !== -1) {
-        cart.splice(itemIndex, 1);
-    }
-    updateCart();
-    updateCartCount();
-    updateTotalPrice(); // Update the total price when an item is removed
-}
-
-function updateCart() {
-    const cartItemsContainer = document.getElementById('cartItems');
-    cartItemsContainer.innerHTML = '';
-    cart.forEach(item => {
-        const cartItemElement = document.createElement('div');
-        cartItemElement.classList.add('flex', 'items-center', 'border-b', 'py-2');
-        cartItemElement.innerHTML = `
-            <img src="${item.image}" alt="${item.name}" class="w-12 h-12 mr-4">
-            <div class="flex flex-col">
-                <div class="flex justify-evenly gap-2 mb-2">
-                    <p class="text-xl font-semibold mr-2">${item.name}</p>
-                    <p id="quantity-${item.id}" class="mx-2 text-xl font-semibold">${item.quantity}</p>
-                    <p class="text-gray-600 text-xl font-semibold">$${item.price}</p>
-                <button class="deleteButton text-xl text-red-500" data-id="${item.id}"><i class="ri-delete-bin-6-line"></i></button>
+    
+    function updateCart() {
+        const cartItemsContainer = document.getElementById('cartItems');
+        cartItemsContainer.innerHTML = '';
+        cart.forEach(item => {
+            const cartItemElement = document.createElement('div');
+            cartItemElement.classList.add('flex', 'items-center', 'border-b', 'py-2');
+            cartItemElement.innerHTML = `
+                <img src="${item.image}" alt="${item.name}" class="w-12 h-12 mr-4">
+                <div class="flex flex-col">
+                    <div class="flex justify-evenly gap-2 mb-2">
+                        <p class="text-xl font-semibold mr-2">${item.name}</p>
+                        <p id="quantity-${item.id}" class="mx-2 text-xl font-semibold">${item.quantity}</p>
+                        <p class="text-gray-600 text-xl font-semibold">$${item.price}</p>
+                    <button class="deleteButton text-xl text-red-500" data-id="${item.id}"><i class="ri-delete-bin-6-line"></i></button>
+                    </div>
                 </div>
-            </div>
-        `;
-
-        const deleteButton = cartItemElement.querySelector('.deleteButton');
-        deleteButton.addEventListener('click', function() {
-            const itemId = this.getAttribute('data-id');
-            removeFromCart(itemId);
+            `;
+    
+            const deleteButton = cartItemElement.querySelector('.deleteButton');
+            deleteButton.addEventListener('click', function() {
+                const itemId = this.getAttribute('data-id');
+                removeFromCart(itemId);
+            });
+    
+            cartItemsContainer.appendChild(cartItemElement);
         });
-
-        cartItemsContainer.appendChild(cartItemElement);
-    });
-    saveCartToLocalStorage();
-}
-function updateTotalPrice() {
-    let totalPrice = 0;
-    cart.forEach(item => {
-        totalPrice += item.price * item.quantity;
-    });
-    const totalPriceElement = document.getElementById('totalPrice');
-    totalPriceElement.textContent = `Total Price: $${totalPrice.toFixed(2)}`;
-    return totalPrice; // Return the total price for use in checkout
-}
-
-function addToCart(id, name, price, image) {
-    const existingItemIndex = cart.findIndex(item => item.id === id);
-    if (existingItemIndex !== -1) {
-        cart[existingItemIndex].quantity++;
-    } else {
-        const newItem = { id, name, price, image, quantity: 1 };
-        cart.push(newItem);
+        saveCartToLocalStorage();
     }
-    updateCart();
-    updateCartCount();
-    updateTotalPrice(); // Update the total price when an item is added
-}
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    loadCartFromLocalStorage();
-
-    const closeCartButton = document.getElementById('close-cart');
-    if (closeCartButton) {
-        closeCartButton.addEventListener('click', function () {
-            document.getElementById('cart-overlay').classList.add('hidden');
+    function updateTotalPrice() {
+        let totalPrice = 0;
+        cart.forEach(item => {
+            totalPrice += item.price * item.quantity;
         });
+        const totalPriceElement = document.getElementById('totalPrice');
+        totalPriceElement.textContent = `Total Price: $${totalPrice.toFixed(2)}`;
+        return totalPrice; // Return the total price for use in checkout
     }
-});
-function sendCartToCheckout() {
-    const cartData = JSON.stringify(cart);
-    const totalPrice = updateTotalPrice(); // Ensure total price is up-to-date
-    const checkoutUrl = `checkout.html?cart=${encodeURIComponent(cartData)}&total=${totalPrice.toFixed(2)}`;
-    window.location.href = checkoutUrl;
-}
+    
+    function addToCart(id, name, price, image) {
+        const existingItemIndex = cart.findIndex(item => item.id === id);
+        if (existingItemIndex !== -1) {
+            cart[existingItemIndex].quantity++;
+        } else {
+            const newItem = { id, name, price, image, quantity: 1 };
+            cart.push(newItem);
+        }
+        updateCart();
+        updateCartCount();
+        updateTotalPrice(); // Update the total price when an item is added
+    }
+    
+    
+    document.addEventListener('DOMContentLoaded', function () {
+        loadCartFromLocalStorage();
+    
+        const closeCartButton = document.getElementById('close-cart');
+        if (closeCartButton) {
+            closeCartButton.addEventListener('click', function () {
+                document.getElementById('cart-overlay').classList.add('hidden');
+            });
+        }
+    });
+    function sendCartToCheckout() {
+        const cartData = JSON.stringify(cart);
+        const totalPrice = updateTotalPrice(); // Ensure total price is up-to-date
+        const checkoutUrl = `checkout.html?cart=${encodeURIComponent(cartData)}&total=${totalPrice.toFixed(2)}`;
+        window.location.href = checkoutUrl;
+    }
+    
+    function ViewCart() {
+        const cartData = JSON.stringify(cart);
+        const totalPrice = updateTotalPrice(); // Ensure total price is up-to-date
+        const viewUrl = `cart.html?cart=${encodeURIComponent(cartData)}&total=${totalPrice.toFixed(2)}`;
+        window.location.href = viewUrl;
+    }
+    */
 
-function ViewCart() {
-    const cartData = JSON.stringify(cart);
-    const totalPrice = updateTotalPrice(); // Ensure total price is up-to-date
-    const viewUrl = `cart.html?cart=${encodeURIComponent(cartData)}&total=${totalPrice.toFixed(2)}`;
-    window.location.href = viewUrl;
-}
 
-
-</script>
+  </script>
 </body>
+
 </html>

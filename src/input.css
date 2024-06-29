@@ -2,16 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-html,body {
+html,
+body {
   scroll-behavior: smooth;
   overflow-x: hidden;
   overflow-y: auto;
 }
+
 .counter {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 120px; /* Adjust width as needed */
+  width: 120px;
+  /* Adjust width as needed */
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 4px;
@@ -60,6 +63,22 @@ input:focus {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .swiper-slide {
+    flex-direction: row;
+  }
+}
+
+.swiper-slide h1 {
+  font-size: 2rem;
+}
+
+@media (min-width: 768px) {
+  .swiper-slide h1 {
+    font-size: 3rem;
+  }
 }
 
 #account-menu {
@@ -144,7 +163,7 @@ input:focus {
   background-color: #2779bd;
 }
 
-#cartCount{
+#cartCount {
   border: 1px solid #0068C8;
   background-color: #0068C8;
   padding: 5px 12px;
@@ -161,13 +180,14 @@ input:focus {
   display: inline-block;
   border-radius: 2px;
 }
+
 .notification .badge {
   position: absolute;
   top: -10px;
   right: -10px;
   padding: 5px 10px;
   border-radius: 50%;
- 
+
 }
 
 
@@ -181,9 +201,10 @@ input:focus {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 9999; 
+  z-index: 9999;
   overflow: hidden;
 }
+
 #cart-list {
   position: absolute;
   top: 0;
@@ -194,32 +215,97 @@ input:focus {
 }
 
 
-@keyframes cartlist{
-  from{
+@keyframes cartlist {
+  from {
     right: -400px;
   }
-  to{
+
+  to {
     right: 0;
   }
 }
-@keyframes cartlistclose{
-  form{
+
+@keyframes cartlistclose {
+  form {
     right: 0;
   }
-  to{
+
+  to {
     right: -400px;
   }
 
 }
 
 .add-to-cart {
-  width: 100%; /* Make the button full-width */
+  width: 100%;
+  /* Make the button full-width */
 }
+
 #cartItems {
- 
-  width: 100%; /* Adjust width as needed */
-   
-  overflow-y: auto; /* Enable vertical scrolling if needed */
-  background-color: white; /* Background color of the cart items container */
-  padding: 10px; /* Adjust padding as needed */
+
+  width: 100%;
+  /* Adjust width as needed */
+
+  overflow-y: auto;
+  /* Enable vertical scrolling if needed */
+  background-color: white;
+  /* Background color of the cart items container */
+  padding: 10px;
+  /* Adjust padding as needed */
+}
+
+/* styles.css */
+#toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #333;
+  color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 0.5s;
+  z-index: 1000;
+  max-width: 80%;
+  /* Ensure the toast fits within the screen */
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#toast.show {
+  opacity: 1;
+}
+
+.hidden {
+  display: none;
+}
+
+#closeToast {
+  background-color: #ff4d4d;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+#closeToast:hover {
+  background-color: #ff1a1a;
+}
+
+#toastImage {
+  width: 64px;
+  height: 64px;
+  margin-right: 16px;
+}
+
+.toast-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
