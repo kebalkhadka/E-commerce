@@ -1,1 +1,1 @@
-Here TechExoress is a ecommerce site which deals with electronic commece and data is fetched throgh api it is a fullstack ecoomrce site.
+Here TechExpress is a ecommerce site which deals with electronic commerce and data is fetched throgh api it is a fullstack ecommerce site.
