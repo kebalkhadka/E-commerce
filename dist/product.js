@@ -8,22 +8,51 @@ fetch('product.json')
             productDiv.classList.add('product', 'border', 'rounded', 'p-4', 'shadow-lg', 'bg-white', 'product-item'); // Added 'product-item' class
 
             productDiv.innerHTML = `
-                <div class="border">
-                    <div><img src="${product.image}" alt="${product.name}" class="w-[300px] h-[300px]"></div>
-                    <a href="#" class="product-name font-semibold text-xl pb-1.5 hover:text-[#0068C8] cursor-pointer" data-name="${product.name}" data-details="${product.details}">${product.name}</a>
-                    <div class="pb-2.5">
-                        <i class="ri-star-fill text-yellow-400 text-xl"></i>
-                        <i class="ri-star-fill text-yellow-400 text-xl"></i>
-                        <i class="ri-star-fill text-yellow-400 text-xl"></i>
-                        <i class="ri-star-fill text-yellow-400 text-xl"></i>
-                    </div>
-                    <div class="text-2xl font-bold text-red-500 pb-2">$${product.price}</div>
-                    <button class="add-to-cart font-bold text-2xl px-20 border-[2px] border-[#0068C8] rounded py-2.5 hover:text-white hover:bg-[#0068C8]" data-id="${product.id}" data-name="${product.name}" data-price="${product.price}" data-image="${product.image}">ADD TO CART</button>
-                </div>
-            `;
+                <div>
+      <div><img src="${product.image}" alt="${product.name}" class="w-[300px] h-[300px]"></div>
+      <a href="#" class="product-name font-semibold text-xl pb-1.5 hover:text-[#0068C8] cursor-pointer" data-name="${product.name}" data-details="${product.details}">${product.name}</a>
+      <div class="pb-2.5">
+        <i class="ri-star-fill text-yellow-400 text-xl"></i>
+        <i class="ri-star-fill text-yellow-400 text-xl"></i>
+        <i class="ri-star-fill text-yellow-400 text-xl"></i>
+        <i class="ri-star-fill text-yellow-400 text-xl"></i>
+      </div>
+      <div class="flex items-center gap-5">
+        <div class="text-2xl font-bold text-red-500">$${product.price}</div>
+        <div class="flex items-center space-x-2">
+          <button class="quantity-btn minus-btn cursor-pointer px-3 py-1 border rounded">-</button>
+          <span class="quantity px-2 font-semibold">1</span>
+          <button class="quantity-btn plus-btn cursor-pointer px-3 py-1 border rounded">+</button>
+        </div>
+      </div>
+      <button class="add-to-cart mt-1 font-bold text-2xl px-5 border-[2px] border-[#0068C8] rounded py-2.5 hover:text-white hover:bg-[#0068C8]" data-id="${product.id}" data-name="${product.name}" data-price="${product.price}" data-image="${product.image}">ADD TO CART</button>
+    </div>
+  `;
 
-            productHere.appendChild(productDiv);
-        });
+  // Append productDiv to productHere container
+  productHere.appendChild(productDiv);
+
+  // Get quantity elements for this product
+  const minusBtn = productDiv.querySelector('.minus-btn');
+  const plusBtn = productDiv.querySelector('.plus-btn');
+  const quantitySpan = productDiv.querySelector('.quantity');
+
+  // Add event listeners for decrementing quantity
+  minusBtn.addEventListener('click', () => {
+    let currentQuantity = parseInt(quantitySpan.textContent);
+    if (currentQuantity > 1) {
+      currentQuantity--;
+      quantitySpan.textContent = currentQuantity;
+    }
+  });
+
+  // Add event listeners for incrementing quantity
+  plusBtn.addEventListener('click', () => {
+    let currentQuantity = parseInt(quantitySpan.textContent);
+    currentQuantity++;
+    quantitySpan.textContent = currentQuantity;
+  });
+});
 
         // Attach add to cart event listeners after the products are appended to the DOM
         addAddToCartListeners();
@@ -31,37 +60,27 @@ fetch('product.json')
     })
     .catch(error => console.error('Error fetching the JSON data:', error));
 
-const addAddToCartListeners = () => {
+    const addAddToCartListeners = () => {
     const addToCartButtons = document.querySelectorAll('.add-to-cart');
     addToCartButtons.forEach(button => {
         button.addEventListener('click', function (event) {
-            event.preventDefault(); // Prevent default link behavior
-            const target = event.currentTarget; // Use currentTarget to refer to the button
-            const productItem = target.closest('.product-item'); // Find the closest parent with the class 'product-item'
+            event.preventDefault();
+            const target = event.currentTarget;
+            const productItem = target.closest('.product-item');
 
-            // Retrieve data attributes from the product item
             const itemId = target.getAttribute('data-id');
             const itemName = target.getAttribute('data-name');
-            const itemImage = productItem.querySelector('img').getAttribute('src'); // Get the src attribute of the img element
+            const itemImage = productItem.querySelector('img').getAttribute('src');
             const itemPrice = parseFloat(target.getAttribute('data-price'));
+            const itemQuantity = parseInt(productItem.querySelector('.quantity').textContent); // Get the current quantity
 
-            addToCart(itemId, itemName, itemPrice, itemImage);
+            addToCart(itemId, itemName, itemPrice, itemImage, itemQuantity);
+
+            showToast(`${itemName} added to cart`);
         });
     });
 };
 
-const attachProductDetailListeners = () => {
-    const productNames = document.querySelectorAll('.product-name');
-    productNames.forEach(productName => {
-        productName.addEventListener('click', function (event) {
-            event.preventDefault();
-            const name = this.getAttribute('data-name');
-            const details = this.getAttribute('data-details');
-            const image = this.getAttribute('data-image');
-            showToast(`${name}: ${details} :${image}`);
-        });
-    });
-};
 
 const showToast = (message) => {
     const toast = document.getElementById('toast');
@@ -75,17 +94,17 @@ const showToast = (message) => {
 };
 
 // Function to handle adding items to the cart
-const addToCart = (id, name, price, image) => {
+const addToCart = (id, name, price, image, quantity) => {
     const existingItemIndex = cart.findIndex(item => item.id === id);
     if (existingItemIndex !== -1) {
-        cart[existingItemIndex].quantity++;
+        cart[existingItemIndex].quantity += quantity; // Add quantity to existing item
     } else {
-        const newItem = { id, name, price, image, quantity: 1 };
+        const newItem = { id, name, price, image, quantity };
         cart.push(newItem);
     }
     updateCart();
     updateCartCount();
-    updateTotalPrice(); // Update the total price when an item is added
+    updateTotalPrice();
 };
 
 let cart = [];
@@ -100,7 +119,7 @@ function loadCartFromLocalStorage() {
         cart = JSON.parse(storedCart);
         updateCart();
         updateCartCount();
-        updateTotalPrice(); // Update the total price when the cart is loaded
+        updateTotalPrice(); 
     }
 }
 
@@ -122,7 +141,7 @@ function removeFromCart(itemId) {
     }
     updateCart();
     updateCartCount();
-    updateTotalPrice(); // Update the total price when an item is removed
+    updateTotalPrice(); 
 }
 
 function updateCart() {

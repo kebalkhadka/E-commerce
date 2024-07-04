@@ -3,26 +3,61 @@
         {
             "id": "1",
             "name": "Macbook",
-            "details": "Laptop 14\" 8-core CPU, M2 2022, 8GB | 256GB,",
             "category": "Laptop",
-            "description": "Best laptop in town",
+      
             "price": "1100.00",
-            "image": "../images/macbook.jpg",
-            "image1": "../images/macbook1.jpg",
-            "image2": "../images/macbook2.jpg",
-            "image3": "../images/macbook3.jpg"
+            "image": "../images/macbook.jpg"
+            
         },
         {
             "id": "2",
-            "name": "Laptop 15.6inch",
-            "details": "Ultra Thin Laptop, Intel Celeron,",
+            "name": "Dell Laptop",
             "category": "Laptop",
-            "description": "best in town",
             "price": "1200.00",
-            "image": "../images/laptop.jpg",
-            "image1": "../images/laptop1.jpg",
-            "image2": "../images/laptop2.jpg",
-            "image3": "../images/laptop3.jpg"
+            "image": "../images/laptop3.jpg"
+        },
+        {
+            "id": "3",
+            "name": "Samsung S23-ultra",
+            "category": "Phone",
+            "price": "999",
+            "image": "../images/s-24ultra.png"
+        },
+        {
+            "id": "4",
+            "name": "Iphone",
+            "category": "Phone",
+            "price": "750",
+            "image": "../images/iphone2.jpg"
+        },
+        {
+            "id": "5",
+            "name": "Airpods",
+            "category": "Earphone",
+            "price": "199",
+            "image": "../images/Airpods.jpg"
+        },
+        {
+            "id": "6",
+            "name": "Speaker",
+            "category": "Speaker",
+            "price": "110",
+            "image": "../images/speaker.jpg"
+        },
+        {
+            "id": "7",
+            "name": "Monitor",
+            "category": "LED",
+            "price": "225",
+            "image": "../images/monitor.jpg"
+        },
+        {
+            "id": "8",
+            "name": "Headphone",
+            "category": "Earphone",
+            "price": "210",
+            "image": "../images/headphone.png"
         }
+
     ]
 }
