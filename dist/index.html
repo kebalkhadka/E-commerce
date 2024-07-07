@@ -23,14 +23,14 @@
           <form class="flex-1 flex items-center border-2 border-[#0068C8] rounded">
             <input name="keyword" class="flex-1 items-start justify-stretch md:pr-44 pl-2 py-2"
               placeholder="Search this site">
-            <select class="py-2 px-4 border-l-2 border-[#0068C8] hidden md:block">
-              <option>All Categories</option>
-              <option value="mobile">Mobile</option>
-              <option value="headset">Headset</option>
-              <option value="speaker">Speaker</option>
-              <option value="Led">LED Tv</option>
-            </select>
-            <button class="bg-[#0068C8] py-2 px-4 text-white flex items-center">
+              <select title="Select category" class="py-2 px-4 border-l-2 border-[#0068C8] hidden md:block">
+                <option>All Categories</option>
+                <option value="mobile">Mobile</option>
+                <option value="headset">Headset</option>
+                <option value="speaker">Speaker</option>
+                <option value="Led">LED Tv</option>
+              </select>
+            <button class="bg-[#0068C8] py-2 px-4 text-white flex items-center" id="filterButton">
               <i class="ri-search-line mr-2"></i>
               <span class="hidden md:inline">Search</span>
             </button>
@@ -72,11 +72,7 @@
         <button onclick="sendCartToCheckout()"
           class="border px-4 py-2 rounded-md text-lg font-semibold bg-[#0068C8] text-white"
           id="checkout-btn">Checkout</button>
-        <button onclick="ViewCart()" class="border px-4 py-2 rounded-md text-lg font-semibold bg-[#0068C8] text-white"
-          id="ViewCart-btn">ViewCart</button>
-
       </div>
-
     </div>
 
 
@@ -88,10 +84,10 @@
       </button>
       <ul class="flex gap-12">
         <li><a href="#" class="text-md font-semibold">Home</a></li>
-        <li><a href="#" class="text-md font-semibold">Category</a></li>
-        <li><a href="#" class="text-md font-semibold">Products</a></li>
-        <li><a href="#" class="text-md font-semibold">Blog</a></li>
-        <li><a href="#" class="text-md font-semibold">Contact</a></li>
+        <li><a href="./testimonials.html" class="text-md font-semibold">Testimonials</a></li>
+        <li><a href="#producthere" class="text-md font-semibold">Products</a></li>
+        <li><a href="./blog.html" class="text-md font-semibold">Blog</a></li>
+        <li><a href="./contact.html" class="text-md font-semibold">Contact</a></li>
       </ul>
       <select class="border py-2 px-16 rounded">
         <option>Nepal </option>
@@ -103,49 +99,7 @@
       </select>
     </nav>
 
-    <!------------Carousel-------------------->
-    <!-- <section class="max-w-[1399px] m-auto pb-2 ">
-      <div class="flex px-12 justify-around gap-2" id="sliderr">
-        <div class="game-link">
-
-          <a href="#" class="flex items-center "><img src="../images/icon-games.png" alt="games"
-              class="w-[60px] h-[60px] pr-2">
-            <p class="font-semibold">Games</p>
-          </a>
-        </div>
-        <div class="game-link">
-          <a href="#" class="flex items-center">
-            <img src="../images/icon-headphone.png" alt="headphone" class="w-[60px] h-[60px] pr-2">
-            <p class="font-semibold">headphone</p>
-          </a>
-        </div>
-        <div class="game-link">
-          <a href="#" class="flex items-center"><img src="../images/icon-laptops.png" alt="laptop"
-              class="w-[60px] h-[60px] pr-2">
-            <p class="font-semibold">Laptops</p>
-          </a>
-        </div>
-        <div class="game-link">
-          <a href="#" class="flex items-center"><img src="../images/icon-phone.png" alt="Phone"
-              class="w-[60px] h-[60px] pr-2">
-            <p class="font-semibold">Phone</p>
-          </a>
-        </div>
-        <div class="game-link">
-          <a href="#" class="flex items-center"><img src="../images/icon-speaker.png" alt="speaker"
-              class="w-[60px] h-[60px] pr-2">
-            <p class="font-semibold">Speaker</p>
-          </a>
-        </div>
-        <div class="game-link">
-          <a href="#" class="flex items-center"><img src="../images/icon-television.png" alt="Televison"
-              class="w-[60px] h-[60px] pr-2">
-            <p class="font-semibold">Televison</p>
-          </a>
-        </div>
-      </div>
-    </section> -->
-
+    <!----------------------------------Carousel--------------------->
     <div id="carousel">
       <div class="swiper mySwiper">
         <div class="swiper-wrapper">
@@ -196,8 +150,9 @@
       </div>
     </div>
   </div>
-  <div class=" m-24" id="banner">
-    <div id="Sale" class="rounded-md p-10 flex flex-col items-center justify-center py-14 w-fit">
+  
+  <div class="md:m-24 " id="banner">
+    <div id="Sale" class="rounded-md p-10  items-center justify-center py-14 w-fit">
       <p class="text-red-400 font-medium ">ONLY FOR TODAY</p>
       <h1 class="font-bold text-4xl py-2">Deal Of The Day</h1>
       <p class="font-semibold text-lg">Deal of the Day for deals on consumer electronics.<br> Watch for many other great
@@ -219,97 +174,11 @@
       </div>
 
     </div>
-    <div class="swiper mySwiper border w-[800px]">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide flex justify-items-start w-fit  gap-20">
-          <img src="../images/headphone.png" alt="no image" class="w-[350x] h-[350px]">
-          <div class="  flex flex-col items-start ">
-            <div class="flex gap-3 pt-5">
-              <p class="bg-blue-500 px-8 py-0.5 rounded-md text-white font-semibold">-3%</p>
-              <p class="bg-red-500 px-8 py-0.5 rounded-md text-white font-semibold">Hot</p>
-            </div>
-            <p class="font-medium text-gray-700 text-sm  pt-2.5">Headphone</p>
-            <p class="font-semibold  pt-1 text-base">Sony MDR-ZX770BT Bluetooth Stereo Headset</p>
-            <div class="text-yellow-400  pt-1">
-              <i class="ri-star-fill"></i>
-              <i class="ri-star-fill"></i>
-              <i class="ri-star-fill"></i>
-              <i class="ri-star-fill"></i>
-              <i class="ri-star-fill"></i>
-            </div>
-            <p class="text-red-500 font-bold text-2xl pt-2.5"> $199.99</p>
-            <p class="text-sm text-start pt-2.5"> offers unparalleled sound clarity, immersive noise cancellation, and
-              luxurious comfort for an unparalleled listening experience. With sleek designs and advanced features like
-              touch controls and long-lasting battery life,</p>
-            <div class="py-12">
-              <button
-                class="font-bold tex-2xl px-20 border-[2px] border-[#0068C8] rounded py-2.5 hover:text-white hover:bg-[#0068C8]"
-                id="btn">ADD TO CART</button>
-            </div>
-
-
-          </div>
-        </div>
-        <div class="swiper-slide flex justify-items-start w-fit  gap-20 ">
-          <img src="../images/JBL-PNG.png" alt="no image" class="w-[350x] h-[350px]">
-          <div class="  flex flex-col items-start ">
-            <div class="flex gap-3 pt-5">
-              <p class="bg-blue-500 px-8 py-0.5 rounded-md text-white font-semibold">-3%</p>
-              <p class="bg-red-500 px-8 py-0.5 rounded-md text-white font-semibold">Hot</p>
-            </div>
-            <p class="font-medium text-gray-700 text-sm  pt-2.5">Speaker</p>
-            <p class="font-semibold  pt-1 text-base">JBL Xtreme 3 Portable Bluetooth Speaker</p>
-            <div class="text-yellow-400  pt-1">
-              <i class="ri-star-fill"></i>
-              <i class="ri-star-fill"></i>
-              <i class="ri-star-fill"></i>
-              <i class="ri-star-fill"></i>
-              <i class="ri-star-fill"></i>
-            </div>
-            <p class="text-red-500 font-bold text-2xl pt-2.5"> $149.99</p>
-            <p class="text-sm text-start pt-2.5"> From sleek aesthetics to immersive sound quality and innovative
-              features, JBL speakers elevate every listening moment, setting the standard for audio perfection.
-            <div class="py-12">
-              <button
-                class="font-bold tex-2xl px-20 border-[2px] border-[#0068C8] rounded py-2.5 hover:text-white hover:bg-[#0068C8]"
-                id="btn">ADD TO CART</button>
-            </div>
-
-
-          </div>
-        </div>
-        <div class="swiper-slide flex justify-items-start w-fit  gap-20 ">
-          <img src="../images/boat.png" alt="no image" class="w-[350x] h-[350px]">
-          <div class="  flex flex-col items-start ">
-            <div class="flex gap-3 pt-5">
-              <p class="bg-blue-500 px-8 py-0.5 rounded-md text-white font-semibold">-3%</p>
-              <p class="bg-red-500 px-8 py-0.5 rounded-md text-white font-semibold">Hot</p>
-            </div>
-            <p class="font-medium text-gray-700 text-sm  pt-2.5">Airbuds</p>
-            <p class="font-semibold  pt-1 text-base">Airdopes 121 v2</p>
-            <div class="text-yellow-400  pt-1">
-              <i class="ri-star-fill"></i>
-              <i class="ri-star-fill"></i>
-              <i class="ri-star-fill"></i>
-              <i class="ri-star-fill"></i>
-              <i class="ri-star-fill"></i>
-            </div>
-            <p class="text-red-500 font-bold text-2xl pt-2.5"> $80.00</p>
-            <p class="text-sm text-start pt-2.5"> Featuring advanced Bluetooth technology and long-lasting battery life,
-              Ensures uninterrupted listening sessions with crystal-clear audio clarity.</p>
-            <div class="py-14">
-              <button
-                class="font-bold tex-2xl px-20 border-[2px] border-[#0068C8] rounded py-2.5 hover:text-white hover:bg-[#0068C8]"
-                id="btn">ADD TO CART</button>
-            </div>
-
-
-          </div>
-        </div>
-      </div>
-      <div class="swiper-pagination"></div>
+    <div>
+      <img src="../images/54-400x400.jpg" alt="">
     </div>
   </div>
+
 
   <div class="m-24">
 
@@ -344,6 +213,7 @@
     </div>
     <button id="closeToast">Close</button>
   </div>
+  
   <!-- Footer -->
   <footer class="bg-[#F7F7F8] p-6 md:p-12 lg:p-24 flex flex-col lg:flex-row gap-12">
     <div class="space-y-5 w-full lg:w-[350px]">
@@ -428,7 +298,7 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="./index.js"></script>
   <script src="./cart.js"></script>
-  <script src="./product.js"></script>
+
   <script>
     var swiper = new Swiper(".mySwiper", {
       autoplay: {
@@ -446,182 +316,244 @@
 
     });
   </script>
-  <script>
-    /*
-    const api = "http://localhost:3000/Backend/fetchAllProducts.php";
-    const callApi = async () => {
+<script>
+  const api = "http://localhost:3000/Backend/fetchAllProducts.php";
+  const callApi = async () => {
       try {
-        const req = await fetch(api);
-        const data = await req.json();
-        const sortedData = data.sort((a, b) => a.id - b.id);
-        const targetDiv = document.getElementById("producthere");
-    
-        data.forEach((item) => {
-          const productItem = document.createElement("div");
-          productItem.classList.add("group", "relative", "border", "box-shadow", "product-item");
-          productItem.innerHTML = `     
-          <div class="border">
-                    <div><img src="${item.image}" alt="" class="w-[300px] h-[300px]"></div>
-                    <a href="productdetail.html?id=${item.id}" class="font-semibold text-xl pb-1.5 hover:text-[#0068C8] cursor-pointer">${item.name}</a>
-                    <div class="pb-2.5">
-                        <i class="ri-star-fill text-yellow-400 text-xl"></i>
-                        <i class="ri-star-fill text-yellow-400 text-xl"></i>
-                        <i class="ri-star-fill text-yellow-400 text-xl"></i>
-                        <i class="ri-star-fill text-yellow-400 text-xl"></i>
-                    </div>
-                    <div class=" text-2xl font-bold  text-red-500 pb-2">$${item.price}</div>
-                    <button class="add-to-cart font-bold tex-2xl px-20 border-[2px] border-[#0068C8] rounded py-2.5 hover:text-white hover:bg-[#0068C8]" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}" data-image="${item.image}">ADD TO CART</button>
-                    
-                </div>
-            `;
-          targetDiv.appendChild(productItem);
-        });
-    
-        // Add event listeners to "ADD TO CART" buttons
-        addAddToCartListeners();
-    
+          const req = await fetch(api);
+          const data = await req.json();
+          const sortedData = data.sort((a, b) => a.id - b.id);
+          const targetDiv = document.getElementById("producthere");
+
+          sortedData.forEach((item) => {
+              const productItem = document.createElement("div");
+              productItem.classList.add("group", "relative", "border", "box-shadow", "product-item");
+              productItem.innerHTML = `     
+                  <div class="border">
+                      <div><img src="${item.image}" alt="${item.name}" class="w-[300px] h-[300px]"></div>
+                      <div class="font-semibold text-xl pb-1.5 hover:text-[#0068C8] cursor-pointer">${item.name}</div>
+                      <div class="pb-2.5">
+                          <i class="ri-star-fill text-yellow-400 text-xl"></i>
+                          <i class="ri-star-fill text-yellow-400 text-xl"></i>
+                          <i class="ri-star-fill text-yellow-400 text-xl"></i>
+                          <i class="ri-star-fill text-yellow-400 text-xl"></i>
+                      </div>
+                      <div class="flex items-center gap-5">
+                          <div class="text-2xl font-bold text-red-500">$${item.price}</div>
+                          <div class="flex items-center space-x-2">
+                              <button class="quantity-btn minus-btn cursor-pointer px-3 py-1 border rounded">-</button>
+                              <span class="quantity px-2 font-semibold">1</span>
+                              <button class="quantity-btn plus-btn cursor-pointer px-3 py-1 border rounded">+</button>
+                          </div>
+                      </div>
+                      <button class="add-to-cart mt-1 font-bold text-2xl px-5 border-[2px] border-[#0068C8] rounded py-2.5 hover:text-white hover:bg-[#0068C8]" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}" data-image="${item.image}">ADD TO CART</button>
+                  </div>
+              `;
+              targetDiv.appendChild(productItem);
+          });
+
+          addAddToCartListeners();
       } catch (error) {
-        console.error('Failed to fetch product details:', error);
+          console.error('Failed to fetch product details:', error);
       }
-    };
-    
-    const addAddToCartListeners = () => {
+  };
+
+  const addAddToCartListeners = () => {
       const addToCartButtons = document.querySelectorAll('.add-to-cart');
       addToCartButtons.forEach(button => {
-        button.addEventListener('click', function (event) {
-          event.preventDefault(); // Prevent default link behavior
-          const target = event.currentTarget; // Use currentTarget to refer to the button
-          const productItem = target.closest('.product-item'); // Find the closest parent with the class 'product-item'
-    
-          // Retrieve data attributes from the product item
-          const itemId = target.getAttribute('data-id');
-          const itemName = target.getAttribute('data-name');
-          const itemImage = productItem.querySelector('img').getAttribute('src'); // Get the src attribute of the img element
-          const itemPrice = parseFloat(target.getAttribute('data-price'));
-    
-          addToCart(itemId, itemName, itemPrice, itemImage);
-        });
+          button.addEventListener('click', function (event) {
+              event.preventDefault();
+              const target = event.currentTarget;
+              const productItem = target.closest('.product-item');
+
+              const itemId = target.getAttribute('data-id');
+              const itemName = target.getAttribute('data-name');
+              const itemPrice = parseFloat(target.getAttribute('data-price'));
+              const itemImage = target.getAttribute('data-image'); // Ensure image URL is correctly retrieved
+
+              const quantityElement = productItem.querySelector('.quantity');
+              const quantity = parseInt(quantityElement.textContent);
+              
+
+              addToCart(itemId, itemName, itemPrice, itemImage, quantity);
+
+              // Display product added to cart toast message
+              displayAddedToCartMessage(itemName, itemImage);
+              
+          });
+
+          const minusButton = button.parentElement.querySelector('.minus-btn');
+          const plusButton = button.parentElement.querySelector('.plus-btn');
+          const quantityElement = button.parentElement.querySelector('.quantity');
+
+          minusButton.addEventListener('click', function (event) {
+              event.preventDefault();
+              let currentQuantity = parseInt(quantityElement.textContent);
+              if (currentQuantity > 1) {
+                  quantityElement.textContent = currentQuantity - 1;
+              }
+          });
+
+          plusButton.addEventListener('click', function (event) {
+              event.preventDefault();
+              let currentQuantity = parseInt(quantityElement.textContent);
+              quantityElement.textContent = currentQuantity + 1;
+          });
       });
-    };
-    
-    callApi();
-    
-    let cart = [];
-    
-    function saveCartToLocalStorage() {
-        localStorage.setItem("cart", JSON.stringify(cart));
-    }
-    
-    function loadCartFromLocalStorage() {
-        const storedCart = localStorage.getItem("cart");
-        if (storedCart) {
-            cart = JSON.parse(storedCart);
-            updateCart();
-            updateCartCount();
-            updateTotalPrice(); // Update the total price when the cart is loaded
-        }
-    }
-    
-    function updateCartCount() {
-        let totalCount = 0;
-        cart.forEach(item => {
-            totalCount += item.quantity;
-        });
-    
-        const cartCountElement = document.getElementById('cartCount');
-        cartCountElement.textContent = totalCount > 0 ? totalCount : "0";
-        cartCountElement.classList.remove('hidden');
-    }
-    
-    function removeFromCart(itemId) {
-        const itemIndex = cart.findIndex(item => item.id === itemId);
-        if (itemIndex !== -1) {
-            cart.splice(itemIndex, 1);
-        }
-        updateCart();
-        updateCartCount();
-        updateTotalPrice(); // Update the total price when an item is removed
-    }
-    
-    function updateCart() {
-        const cartItemsContainer = document.getElementById('cartItems');
-        cartItemsContainer.innerHTML = '';
-        cart.forEach(item => {
-            const cartItemElement = document.createElement('div');
-            cartItemElement.classList.add('flex', 'items-center', 'border-b', 'py-2');
-            cartItemElement.innerHTML = `
-                <img src="${item.image}" alt="${item.name}" class="w-12 h-12 mr-4">
-                <div class="flex flex-col">
-                    <div class="flex justify-evenly gap-2 mb-2">
-                        <p class="text-xl font-semibold mr-2">${item.name}</p>
-                        <p id="quantity-${item.id}" class="mx-2 text-xl font-semibold">${item.quantity}</p>
-                        <p class="text-gray-600 text-xl font-semibold">$${item.price}</p>
-                    <button class="deleteButton text-xl text-red-500" data-id="${item.id}"><i class="ri-delete-bin-6-line"></i></button>
-                    </div>
-                </div>
-            `;
-    
-            const deleteButton = cartItemElement.querySelector('.deleteButton');
-            deleteButton.addEventListener('click', function() {
-                const itemId = this.getAttribute('data-id');
-                removeFromCart(itemId);
+  };
+
+  let cart = [];
+
+  function saveCartToLocalStorage() {
+      localStorage.setItem("cart", JSON.stringify(cart));
+  }
+
+  function loadCartFromLocalStorage() {
+      const storedCart = localStorage.getItem("cart");
+      if (storedCart) {
+          cart = JSON.parse(storedCart);
+          updateCart();
+          updateCartCount();
+          updateTotalPrice();
+      }
+  }
+
+  function updateCartCount() {
+      let totalCount = 0;
+      cart.forEach(item => {
+          totalCount += item.quantity;
+      });
+
+      const cartCountElement = document.getElementById('cartCount');
+      cartCountElement.textContent = totalCount > 0 ? totalCount : "0";
+      cartCountElement.classList.remove('hidden');
+  }
+
+  function removeFromCart(itemId) {
+      const itemIndex = cart.findIndex(item => item.id === itemId);
+      if (itemIndex !== -1) {
+          cart.splice(itemIndex, 1);
+      }
+      updateCart();
+      updateCartCount();
+      updateTotalPrice();
+  }
+
+  function updateCart() {
+      const cartItemsContainer = document.getElementById('cartItems');
+      cartItemsContainer.innerHTML = '';
+      cart.forEach(item => {
+          const cartItemElement = document.createElement('div');
+          cartItemElement.classList.add('flex', 'items-center', 'border-b', 'py-2');
+          cartItemElement.innerHTML = `
+              <img src="${item.image}" alt="${item.name}" class="w-12 h-12 mr-4">
+              <div class="flex flex-col">
+                  <div class="flex justify-between gap-2 mb-2">
+                      <p class="text-xl font-semibold mr-2">${item.name}</p>
+                      <p class="text-gray-600 text-xl font-semibold">${item.quantity}</p>
+                      <p class="text-gray-600 text-xl font-semibold">$${item.price}</p>
+                      <button class="deleteButton text-xl text-red-500" data-id="${item.id}"><i class="ri-delete-bin-6-line"></i></button>
+                  </div>
+              </div>
+          `;
+
+          const deleteButton = cartItemElement.querySelector('.deleteButton');
+          deleteButton.addEventListener('click', function() {
+              const itemId = this.getAttribute('data-id');
+              removeFromCart(itemId);
+          });
+
+          cartItemsContainer.appendChild(cartItemElement);
+      });
+      saveCartToLocalStorage();
+  }
+
+  function updateTotalPrice() {
+      let totalPrice = 0;
+      cart.forEach(item => {
+          totalPrice += item.price * item.quantity;
+      });
+      const totalPriceElement = document.getElementById('totalPrice');
+      totalPriceElement.textContent = `Total Price: $${totalPrice.toFixed(2)}`;
+      return totalPrice;
+  }
+
+  function addToCart(id, name, price, image, quantity) {
+      const existingItemIndex = cart.findIndex(item => item.id === id);
+      if (existingItemIndex !== -1) {
+          cart[existingItemIndex].quantity += quantity;
+      } else {
+          const newItem = { id, name, price, image, quantity };
+          cart.push(newItem);
+      }
+      updateCart();
+      updateCartCount();
+      updateTotalPrice();
+  }
+
+  function displayAddedToCartMessage(productName, productImage) {
+    const toastNameElement = document.getElementById('toastName');
+    const toastCategoryElement = document.getElementById('toastCategory');
+    const toastImageElement = document.getElementById('toastImage');
+    const toastElement = document.getElementById('toast');
+
+    if (toastNameElement && toastCategoryElement && toastImageElement && toastElement) {
+        toastNameElement.textContent = productName;
+        toastCategoryElement.textContent = ""; // You can add category if needed
+        toastImageElement.src = productImage;
+        toastElement.classList.remove('hidden');
+
+        // Close toast button functionality
+        const closeToastButton = document.getElementById('closeToast');
+        if (closeToastButton) {
+            closeToastButton.addEventListener('click', function () {
+                toastElement.classList.add('hidden');
             });
-    
-            cartItemsContainer.appendChild(cartItemElement);
-        });
-        saveCartToLocalStorage();
-    }
-    function updateTotalPrice() {
-        let totalPrice = 0;
-        cart.forEach(item => {
-            totalPrice += item.price * item.quantity;
-        });
-        const totalPriceElement = document.getElementById('totalPrice');
-        totalPriceElement.textContent = `Total Price: $${totalPrice.toFixed(2)}`;
-        return totalPrice; // Return the total price for use in checkout
-    }
-    
-    function addToCart(id, name, price, image) {
-        const existingItemIndex = cart.findIndex(item => item.id === id);
-        if (existingItemIndex !== -1) {
-            cart[existingItemIndex].quantity++;
-        } else {
-            const newItem = { id, name, price, image, quantity: 1 };
-            cart.push(newItem);
         }
-        updateCart();
-        updateCartCount();
-        updateTotalPrice(); // Update the total price when an item is added
+
+        // Automatically hide toast after 3 seconds
+        setTimeout(() => {
+            toastElement.classList.add('hidden');
+        }, 3000);
+    } else {
+        console.error('Toast elements not found.');
     }
-    
-    
-    document.addEventListener('DOMContentLoaded', function () {
-        loadCartFromLocalStorage();
-    
-        const closeCartButton = document.getElementById('close-cart');
-        if (closeCartButton) {
-            closeCartButton.addEventListener('click', function () {
-                document.getElementById('cart-overlay').classList.add('hidden');
-            });
-        }
-    });
-    function sendCartToCheckout() {
-        const cartData = JSON.stringify(cart);
-        const totalPrice = updateTotalPrice(); // Ensure total price is up-to-date
-        const checkoutUrl = `checkout.html?cart=${encodeURIComponent(cartData)}&total=${totalPrice.toFixed(2)}`;
-        window.location.href = checkoutUrl;
-    }
-    
-    function ViewCart() {
-        const cartData = JSON.stringify(cart);
-        const totalPrice = updateTotalPrice(); // Ensure total price is up-to-date
-        const viewUrl = `cart.html?cart=${encodeURIComponent(cartData)}&total=${totalPrice.toFixed(2)}`;
-        window.location.href = viewUrl;
-    }
-    */
+}
 
 
-  </script>
+  document.addEventListener('DOMContentLoaded', function () {
+      const closeCartButton = document.getElementById('close-cart');
+      if (closeCartButton) {
+          closeCartButton.addEventListener('click', function () {
+              document.getElementById('cart-overlay').classList.add('hidden');
+          });
+      }
+
+      loadCartFromLocalStorage();
+      callApi();
+  });
+
+  function sendCartToCheckout() {
+      const cartData = JSON.stringify(cart);
+      const totalPrice = updateTotalPrice();
+      const checkoutUrl = `checkout.html?cart=${encodeURIComponent(cartData)}&total=${totalPrice.toFixed(2)}`;
+      window.location.href = checkoutUrl;
+  }
+
+  function ViewCart() {
+      const cartData = JSON.stringify(cart);
+      const totalPrice = updateTotalPrice();
+      const viewUrl = `cart.html?cart=${encodeURIComponent(cartData)}&total=${totalPrice.toFixed(2)}`;
+      window.location.href = viewUrl;
+  }
+</script>
+
+
+
+
+  
+  
+  
 </body>
 
 </html>

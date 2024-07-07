@@ -35,7 +35,7 @@ class Register
             if ($result->num_rows > 0) {
                 $reg = array();
                 while ($row = $result->fetch_array()) {
-                    array_push($reg, array("id" => $row['id'], "name" => $row['name'], "details" => $row['details'], "description" => $row['description'], "price" => $row['price'], "image" => $row['image'], "image1" => $row['image1']));
+                    array_push($reg, array("id" => $row['id'], "name" => $row['name'], "details" => $row['details'], "description" => $row['description'], "price" => $row['price'], "image" => $row['image']));
                 }
                 print(json_encode(array_reverse($reg)));
             } else {
@@ -49,4 +49,3 @@ class Register
 }
 $reg = new Register();
 $reg->select();
-?>

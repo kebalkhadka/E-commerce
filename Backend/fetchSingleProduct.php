@@ -95,5 +95,3 @@ if(isset($_GET['id'])) {
 } else {
     $reg->selectAll();
 }
-
-?>

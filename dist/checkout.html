@@ -103,6 +103,8 @@
             </table>
         </div>
     </div>
+
+    
     <!-- Footer -->
     <footer class="bg-[#F7F7F8] p-6 md:p-12 lg:p-24 flex flex-col lg:flex-row gap-12">
         <div class="space-y-5 w-full lg:w-[350px]">
@@ -206,6 +208,21 @@
                 <td class="py-2 border-b text-center">$${item.price.toFixed(2)}</td>
                 <td class="py-2 border-b text-center">${item.quantity}</td>
                 <td class="py-2 border-b text-center">$${itemTotal.toFixed(2)}</td>
+                <td>
+                    <form action="https://uat.esewa.com.np/epay/main" method="POST">
+        <input value=${itemTotal.toFixed(2)} name="tAmt" type="hidden">
+        <input value=${itemTotal.toFixed(2)} name="amt" type="hidden">
+        <input value="0" name="txAmt" type="hidden">
+        <input value="0" name="psc" type="hidden">
+        <input value="0" name="pdc" type="hidden">
+        <input value="epay_payment" name="scd" type="hidden">
+        <input value="12345" name="pid" type="hidden">
+        <input value="http://localhost/ecommercelab/LAB9/success.php"
+        type="hidden" name="su">
+        <input value="http://localhost/ecommercelab/LAB9/failure.php"
+        type="hidden" name="fu">
+        <button type="submit" class="bg-[#0072DA] text-white rounded px-6 py-3 text-sm font-bold hover:bg-blue-700 mt-4">Pay using Esewa</button>
+        </form></td>
             `;
             cartItemsTableBody.appendChild(cartItemRow);
         });
