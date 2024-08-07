@@ -67,7 +67,6 @@ fetch('product.json')
             event.preventDefault();
             const target = event.currentTarget;
             const productItem = target.closest('.product-item');
-
             const itemId = target.getAttribute('data-id');
             const itemName = target.getAttribute('data-name');
             const itemImage = productItem.querySelector('img').getAttribute('src');
@@ -208,5 +207,7 @@ function ViewCart() {
     window.location.href = viewUrl;
 }
 
+
+//-----------------------------------------------------
 
 

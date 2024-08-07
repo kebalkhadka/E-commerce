@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Management</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 0;
+      text-align: center;
+    }
+    .logo {
+      display: inline-block;
+      margin-right: 20px;
+    }
+    nav {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000; /* Ensures navbar stays on top */
+      height: 10vh; /* Set navbar height as 10% of viewport height */
+    }
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    nav ul li {
+      display: inline;
+      margin: 0 10px;
+    }
+    .hero {
+      background-image: url('hero.jpg');
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+      padding: 100px 0;
+      margin-top: 10vh; /* Adjusted to account for navbar height */
+      height: calc(90vh - 10vh); /* Calculate hero height as remaining viewport height minus navbar height */
+    }
+    .hero h2 {
+      margin-bottom: 20px;
+    }
+    .hero p {
+      margin-bottom: 40px;
+    }
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .content {
+      padding: 20px;
+      text-align: center;
+    }
+    .form-container {
+      background-color: #f4f4f4;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 600px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .form-container h2 {
+      margin-bottom: 20px;
+    }
+    .form-container form {
+      display: flex;
+      flex-direction: column;
+    }
+    .form-container label {
+      margin-bottom: 10px;
+    }
+    .form-container input,
+    .form-container textarea {
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-size: 16px;
+    }
+    .form-container .button {
+      width: 100%;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      padding: 15px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .form-container .button:hover {
+      background-color: #45a049;
+    }
+    .footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      width: 100%;
+    }
+    .product {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin: 10px;
+      padding: 10px;
+      text-align: left;
+    }
+    .product img {
+      max-width: 100px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <img src="logo.png" alt="Company Logo" height="50">
+    </div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+  <section class="content">
+    <div class="form-container">
+      <h2>Add New Product</h2>
+      <form action="../Backend/add_product.php" method="post">
+        <label for="id">Product ID:</label>
+        <input type="text" id="id" name="id" required>
+        
+        <label for="name">Product Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="category">Category:</label>
+        <input type="text" id="category" name="category" required>
+        
+        <label for="price">Product Price:</label>
+        <input type="number" id="price" name="price" required>
+        
+        <label for="image">Product Image URL:</label>
+        <input type="text" id="image" name="image" required>
+        
+        <button type="submit" class="button">Add Product</button>
+      </form>
+    </div>
+
+    <h2>Product List</h2>
+    <div id="product-list"></div>
+  </section>
+  
+  <footer class="footer">
+    <p>&copy; 2024 Company Name. All rights reserved.</p>
+  </footer>
+  
+  <script>
+    // Fetch and display products from JSON file
+    fetch('product.json')
+      .then(response => response.json())
+      .then(data => {
+        const products = data.products;
+        const productList = document.getElementById('product-list');
+        products.forEach(product => {
+          const productDiv = document.createElement('div');
+          productDiv.className = 'product';
+          productDiv.innerHTML = `
+            <h3>${product.name}</h3>
+            <p>Category: ${product.category}</p>
+            <p>Price: $${product.price}</p>
+            <img src="${product.image}" alt="${product.name}">
+          `;
+          productList.appendChild(productDiv);
+        });
+      });
+  </script>
+</body>
+</html>

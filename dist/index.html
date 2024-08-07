@@ -18,7 +18,7 @@
 
     <nav class="flex justify-around items-center py-4  flex-wrap flex-col md:flex-col lg:flex-row">
       <div class="lg:flex justify-around items-center gap-40 py-4">
-        <p class="font-bold text-2xl sm:items-center" id="logo">TechExp</p>
+        <a  href="#"class="font-bold text-2xl sm:items-center cursor-pointer" id="logo">TechExp</a>
         <div class="md:flex items-center justify-end md:gap-x-4">
           <form class="flex-1 flex items-center border-2 border-[#0068C8] rounded">
             <input name="keyword" class="flex-1 items-start justify-stretch md:pr-44 pl-2 py-2"
@@ -30,7 +30,7 @@
                 <option value="speaker">Speaker</option>
                 <option value="Led">LED Tv</option>
               </select>
-            <button class="bg-[#0068C8] py-2 px-4 text-white flex items-center">
+            <button class="bg-[#0068C8] py-2 px-4 text-white flex items-center" id="filterButton">
               <i class="ri-search-line mr-2"></i>
               <span class="hidden md:inline">Search</span>
             </button>
@@ -54,8 +54,7 @@
         </button>
       </div>
     </nav>
-
-
+    
     <!--Cart-->
     <div class="w-full h-full bg=black bg-opacity-80 fixed top-0 left-0 hidden" id="cart-overlay">
       <div class="bg-white  w-400px h-full absolute top-0 right-0 py-4 px-6 overflow-y-auto " id="cart-list">
@@ -82,10 +81,10 @@
       </button>
       <ul class="flex gap-12">
         <li><a href="#" class="text-md font-semibold">Home</a></li>
-        <li><a href="#" class="text-md font-semibold">Category</a></li>
+        <li><a href="./testimonials.html" class="text-md font-semibold">Testimonials</a></li>
         <li><a href="#producthere" class="text-md font-semibold">Products</a></li>
-        <li><a href="#" class="text-md font-semibold">Blog</a></li>
-        <li><a href="#" class="text-md font-semibold">Contact</a></li>
+        <li><a href="./blog.html" class="text-md font-semibold">Blog</a></li>
+        <li><a href="./contact.html" class="text-md font-semibold">Contact</a></li>
       </ul>
       <select class="border py-2 px-16 rounded">
         <option>Nepal </option>
@@ -193,7 +192,7 @@
       <img src="../images/earphones.png" alt="slider">
     </div>
   </div>
-
+<!-------------------Product displayed -------------------------->
   <div class="md:m-24">
     <div class="font-semibold text-4xl">Best Sellers</div>
     <div id="producthere" class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 md:gap-8"></div>
@@ -215,8 +214,7 @@
         <p>TechExpress@gmail.com</p>
       </div>
       <div class="flex gap-2 text-gray-500">
-        <i class="ri-phone-line"></i>
-        <p>+91 12457890</p>
+        <p>&copy; <span id="currentYear"></span> TechExpress All rights reserved.</p>
       </div>
     </div>
 
@@ -298,6 +296,11 @@
         prevEl: ".swiper-button-prev",
       }
 
+    });
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const yearElement = document.getElementById('currentYear');
+        const currentYear = new Date().getFullYear();
+        yearElement.textContent = currentYear;
     });
   </script>
   

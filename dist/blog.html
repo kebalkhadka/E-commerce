@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../src/input.css">
+</head>
+<body>
+    <!--nav ----------------->
+    <nav class="flex justify-around items-center py-4  flex-wrap flex-col md:flex-col lg:flex-row">
+        <div class="lg:flex justify-around items-center gap-40 py-4">
+          <a href="./index.html" class="font-bold text-2xl sm:items-center" id="logo" cursor="cursor-pointer">TechExp</a>
+          <div class="md:flex items-center justify-end md:gap-x-4">
+            <form class="flex-1 flex items-center border-2 border-[#0068C8] rounded">
+              <input name="keyword" class="flex-1 items-start justify-stretch md:pr-44 pl-2 py-2"
+                placeholder="Search this site">
+                <select title="Select category" class="py-2 px-4 border-l-2 border-[#0068C8] hidden md:block">
+                  <option>All Categories</option>
+                  <option value="mobile">Mobile</option>
+                  <option value="headset">Headset</option>
+                  <option value="speaker">Speaker</option>
+                  <option value="Led">LED Tv</option>
+                </select>
+              <button class="bg-[#0068C8] py-2 px-4 text-white flex items-center" id="filterButton">
+                <i class="ri-search-line mr-2"></i>
+                <span class="hidden md:inline">Search</span>
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="flex gap-6">
+          <button class="text-xl relative" id="account">
+            <i class="ri-user-line"></i>
+            Account
+            <div class="bg-white border rounded w-[150px] py-3 absolute top-10 right-0 flex flex-col items-start"
+              id="account-menu">
+              <a href="./register.html" class="text-sm w-full text-left hover:bg-gray-300 px-3 py-2">Register</a>
+              <a href="./login.html" class="text-sm w-full text-left hover:bg-gray-300 px-3 py-2">Login</a>
+            </div>
+          </button>
+          <button class=" notification text-xl" id="cart">
+            <i class="ri-shopping-cart-line"></i>
+            Cart
+            <span id="cartCount" class="badge font-semibold">0</span>
+          </button>
+        </div>
+      </nav>
+      
+     <!-----------------Cart----------------->
+      <div class="w-full h-full bg=black bg-opacity-80 fixed top-0 left-0 hidden" id="cart-overlay">
+        <div class="bg-white  w-400px h-full absolute top-0 right-0 py-4 px-6 overflow-y-auto " id="cart-list">
+          <div class="flex justify-between">
+            <h1 class="text-lg font-semibold">My Cart</h1>
+            <button class="text-rose-600 font-bold text-xl" id="close-cart">
+              <i class="ri-close-circle-line"></i>
+            </button>
+          </div>
+          <div id="cartItems">
+          </div>
+          <div id="totalPrice" class="text-2xl font-bold"></div>
+  
+          <button onclick="sendCartToCheckout()"
+            class="border px-4 py-2 rounded-md text-lg font-semibold bg-[#0068C8] text-white"
+            id="checkout-btn">Checkout</button>
+        </div>
+      </div>
+
+     <!--main navbar-->
+      <nav class="flex justify-around items-center py-4">
+        <button class="border text-xl w-12 h-12">
+          <i class="ri-menu-3-fill"></i>
+        </button>
+        <ul class="flex gap-12">
+          <li><a href="./index.html" class="text-md font-semibold">Home</a></li>
+          <li><a href="./testimonials.html" class="text-md font-semibold">Testimonials</a></li>
+          <li><a href="#" class="text-md font-semibold">Products</a></li>
+          <li><a href="#" class="text-md font-semibold">Blog</a></li>
+          <li><a href="#" class="text-md font-semibold">Contact</a></li>
+        </ul>
+        <select class="border py-2 px-16 rounded">
+          <option>Nepal </option>
+          <option>India </option>
+          <option>Usa </option>
+          <option>China </option>
+          <option>Germany </option>
+  
+        </select>
+      </nav>
+   
+     <!--Page title-->
+    <div class="bg-[#E4F2ED] flex flex-col lg:flex-row justify-between px-6 md:px-16 lg:px-32 py-4 items-center text-center lg:text-left">
+    <h1 class="font-semibold text-2xl mb-2 lg:mb-0">Blog</h1>
+    <p class="font-semibold">Home - Blog</p>
+    </div>
+
+      <!--------------------Blog page ---------------->
+      <div class="bg-white py-24 sm:py-24">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <div class="mx-auto max-w-2xl lg:mx-0">
+            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">From the blog</h2>
+            <p class="mt-2 text-lg leading-8 text-gray-600">Learn how to grow your business with our expert advice.</p>
+          </div>
+          <div class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+            <article class="flex max-w-xl flex-col items-start justify-between">
+              <div class="flex items-center gap-x-4 text-xs">
+                <time datetime="2020-03-16" class="text-gray-500">Mar 16, 2020</time>
+                <a href="#" class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a>
+              </div>
+              <div class="group relative">
+                <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                  <a href="#">
+                    <span class="absolute inset-0"></span>
+                    Boost your conversion rate
+                  </a>
+                </h3>
+                <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.</p>
+              </div>
+              <div class="relative mt-8 flex items-center gap-x-4">
+                <img src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="h-10 w-10 rounded-full bg-gray-50">
+                <div class="text-sm leading-6">
+                  <p class="font-semibold text-gray-900">
+                    <a href="#">
+                      <span class="absolute inset-0"></span>
+                      Michael Foster
+                    </a>
+                  </p>
+                  <p class="text-gray-600">Co-Founder / CTO</p>
+                </div>
+              </div>
+            </article>
+            <article class="flex max-w-xl flex-col items-start justify-between">
+                <div class="flex items-center gap-x-4 text-xs">
+                  <time datetime="2020-03-16" class="text-gray-500">Mar 16, 2020</time>
+                  <a href="#" class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a>
+                </div>
+                <div class="group relative">
+                  <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                    <a href="#">
+                      <span class="absolute inset-0"></span>
+                      Boost your conversion rate
+                    </a>
+                  </h3>
+                  <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.</p>
+                </div>
+                <div class="relative mt-8 flex items-center gap-x-4">
+                  <img src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="h-10 w-10 rounded-full bg-gray-50">
+                  <div class="text-sm leading-6">
+                    <p class="font-semibold text-gray-900">
+                      <a href="#">
+                        <span class="absolute inset-0"></span>
+                        Michael Foster
+                      </a>
+                    </p>
+                    <p class="text-gray-600">Co-Founder / CTO</p>
+                  </div>
+                </div>
+              </article>
+              <article class="flex max-w-xl flex-col items-start justify-between">
+                <div class="flex items-center gap-x-4 text-xs">
+                  <time datetime="2020-03-16" class="text-gray-500">Mar 16, 2020</time>
+                  <a href="#" class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a>
+                </div>
+                <div class="group relative">
+                  <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                    <a href="#">
+                      <span class="absolute inset-0"></span>
+                      Boost your conversion rate
+                    </a>
+                  </h3>
+                  <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.</p>
+                </div>
+                <div class="relative mt-8 flex items-center gap-x-4">
+                  <img src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="h-10 w-10 rounded-full bg-gray-50">
+                  <div class="text-sm leading-6">
+                    <p class="font-semibold text-gray-900">
+                      <a href="#">
+                        <span class="absolute inset-0"></span>
+                        Michael Foster
+                      </a>
+                    </p>
+                    <p class="text-gray-600">Co-Founder / CTO</p>
+                  </div>
+                </div>
+              </article>
+      
+            <!-- More posts... -->
+          </div>
+        </div>
+      </div>
+      
+
+      <!-- Footer -->
+  <footer class="bg-[#F7F7F8] p-6 md:p-12 lg:p-24 flex flex-col lg:flex-row gap-12">
+    <div class="space-y-5 w-full lg:w-[350px]">
+      <div>
+        <h1 class="font-bold text-xl">TechExp</h1>
+        <p class="text-zinc-600 mt-4">TechExp is the biggest market of electronic products. Get your daily needs from
+          our store.</p>
+      </div>
+      <div class="flex gap-2 text-gray-500">
+        <i class="ri-map-pin-line"></i>
+        <address>Green St. Huntington ohaio beach ontario, NY 11746 KY 4783, USA.</address>
+      </div>
+      <div class="flex gap-2 text-gray-500">
+        <i class="ri-mail-send-line"></i>
+        <p>TechExpress@gmail.com</p>
+      </div>
+      <div class="flex gap-2 text-gray-500">
+        <i class="ri-phone-line"></i>
+        <p>+91 12457890</p>
+      </div>
+    </div>
+
+    <div class="flex-1 w-full lg:w-auto">
+      <h4 class="font-semibold text-2xl">Company</h4>
+      <ul class="mt-4 space-y-3">
+        <li><a href="#" class="text-md text-gray-500">About Us</a></li>
+        <li><a href="#" class="text-md text-gray-500">Delivery Information</a></li>
+        <li><a href="#" class="text-md text-gray-500">Privacy Policy</a></li>
+        <li><a href="#" class="text-md text-gray-500">Terms & Conditions</a></li>
+        <li><a href="#" class="text-md text-gray-500">Contact Us</a></li>
+        <li><a href="#" class="text-md text-gray-500">Support Center</a></li>
+      </ul>
+    </div>
+
+    <div class="flex-1 w-full lg:w-auto">
+      <h4 class="font-semibold text-2xl">Category</h4>
+      <ul class="mt-4 space-y-3">
+        <li><a href="#" class="text-md text-gray-500">Home Appliance</a></li>
+        <li><a href="#" class="text-md text-gray-500">Smartphones</a></li>
+        <li><a href="#" class="text-md text-gray-500">Laptop</a></li>
+        <li><a href="#" class="text-md text-gray-500">Home Entertainment System</a></li>
+        <li><a href="#" class="text-md text-gray-500">Wearable Technology</a></li>
+        <li><a href="#" class="text-md text-gray-500">Support Center</a></li>
+      </ul>
+    </div>
+
+    <div class="space-y-4 w-full lg:w-auto">
+      <h4 class="font-semibold text-2xl">Newsletter</h4>
+      <div class="space-y-4">
+        <p class="text-gray-500 mb-1">Subscribe to get in touch</p>
+        <form autocomplete="off" class="relative">
+          <input name="email" type="email" required="true" class="border w-full p-2.5 rounded" placeholder="Email">
+          <button class="absolute top-0 right-2 p-2.5" type="submit">
+            <i class="ri-send-plane-fill"></i>
+          </button>
+        </form>
+        <div class="flex gap-2 items-center">
+          <a href="#" class="border bg-white block px-2.5 py-1.5 rounded">
+            <i class="ri-facebook-line"></i>
+          </a>
+          <a href="#" class="border bg-white px-2.5 py-1.5 rounded">
+            <i class="ri-twitter-x-line"></i>
+          </a>
+          <a href="#" class="border bg-white px-2.5 py-1.5 rounded">
+            <i class="ri-instagram-line"></i>
+          </a>
+          <a href="#" class="border bg-white px-2.5 py-1.5 rounded">
+            <i class="ri-linkedin-box-line"></i>
+          </a>
+        </div>
+      </div>
+      <div class="flex gap-3 mt-4">
+        <a href="#">
+          <img src="../images/android.png" alt="android" class="rounded-md">
+        </a>
+        <a href="#">
+          <img src="../images/apple.png" alt="apple" class="rounded-md">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+    
+</body>
+</html>
