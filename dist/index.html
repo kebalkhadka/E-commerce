@@ -17,43 +17,42 @@
     <!----------------------Top navbar-------------->
 
     <nav class="flex justify-around items-center py-4  flex-wrap flex-col md:flex-col lg:flex-row">
-      <div class="lg:flex justify-around items-center gap-40 py-4">
-        <p class="font-bold text-2xl sm:items-center" id="logo">TechExp</p>
-        <div class="md:flex items-center justify-end md:gap-x-4">
-          <form class="flex-1 flex items-center border-2 border-[#0068C8] rounded">
-            <input name="keyword" class="flex-1 items-start justify-stretch md:pr-44 pl-2 py-2"
-              placeholder="Search this site">
-              <select title="Select category" class="py-2 px-4 border-l-2 border-[#0068C8] hidden md:block">
-                <option>All Categories</option>
-                <option value="mobile">Mobile</option>
-                <option value="headset">Headset</option>
-                <option value="speaker">Speaker</option>
-                <option value="Led">LED Tv</option>
-              </select>
-            <button class="bg-[#0068C8] py-2 px-4 text-white flex items-center" id="filterButton">
-              <i class="ri-search-line mr-2"></i>
-              <span class="hidden md:inline">Search</span>
-            </button>
-          </form>
+        <div class="lg:flex justify-around items-center gap-40 py-4">
+            <a href="./index.html" class="font-bold text-2xl sm:items-center cursor-pointer" id="logo">TechExp</a>
+            <div class="md:flex items-center justify-end md:gap-x-4">
+                <form class="flex-1 flex items-center border-2 border-[#0068C8] rounded" onsubmit="return searchProducts(event)">
+                    <input name="keyword" id="searchKeyword" class="flex-1 items-start justify-stretch md:pr-44 pl-2 py-2" placeholder="Search this site">
+                    <select title="Select category" id="searchCategory" class="py-2 px-4 border-l-2 border-[#0068C8] hidden md:block">
+                        <option value="">All Categories</option>
+                        <option value="mobile">Mobile</option>
+                        <option value="headset">Headset</option>
+                        <option value="speaker">Speaker</option>
+                        <option value="led">LED Tv</option>
+                    </select>
+                    <button class="bg-[#0068C8] py-2 px-4 text-white flex items-center" id="filterButton">
+                        <i class="ri-search-line mr-2"></i>
+                        <span class="hidden md:inline">Search</span>
+                    </button>
+                </form>
+            </div>
         </div>
-      </div>
-      <div class="flex gap-6">
-        <button class="text-xl relative" id="account">
-          <i class="ri-user-line"></i>
-          Account
-          <div class="bg-white border rounded w-[150px] py-3 absolute top-10 right-0 flex flex-col items-start"
-            id="account-menu">
-            <a href="./register.html" class="text-sm w-full text-left hover:bg-gray-300 px-3 py-2">Register</a>
-            <a href="./login.html" class="text-sm w-full text-left hover:bg-gray-300 px-3 py-2">Login</a>
-          </div>
-        </button>
-        <button class=" notification text-xl" id="cart">
-          <i class="ri-shopping-cart-line"></i>
-          Cart
-          <span id="cartCount" class="badge font-semibold">0</span>
-        </button>
-      </div>
+        <div class="flex gap-6">
+            <button class="text-xl relative" id="account">
+                <i class="ri-user-line"></i>
+                Account
+                <div class="bg-white border rounded w-[150px] py-3 absolute top-10 right-0 flex flex-col items-start" id="account-menu">
+                    <a href="./register.html" class="text-sm w-full text-left hover:bg-gray-300 px-3 py-2">Register</a>
+                    <a href="./login.html" class="text-sm w-full text-left hover:bg-gray-300 px-3 py-2">Login</a>
+                </div>
+            </button>
+            <button class="notification text-xl" id="cart">
+                <i class="ri-shopping-cart-line"></i>
+                Cart
+                <span id="cartCount" class="badge font-semibold">0</span>
+            </button>
+        </div>
     </nav>
+
 
 
     <!--Cart-->
@@ -231,8 +230,7 @@
         <p>TechExpress@gmail.com</p>
       </div>
       <div class="flex gap-2 text-gray-500">
-        <i class="ri-phone-line"></i>
-        <p>+91 12457890</p>
+        <p>&copy; <span id="currentYear"></span> TechExpress All rights reserved.</p>
       </div>
     </div>
 
@@ -317,6 +315,11 @@
     });
   </script>
 <script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+        const yearElement = document.getElementById('currentYear');
+        const currentYear = new Date().getFullYear();
+        yearElement.textContent = currentYear;
+    });
   const api = "http://localhost:3000/Backend/fetchAllProducts.php";
   const callApi = async () => {
       try {
@@ -326,10 +329,11 @@
           const targetDiv = document.getElementById("producthere");
 
           sortedData.forEach((item) => {
+            
               const productItem = document.createElement("div");
               productItem.classList.add("group", "relative", "border", "box-shadow", "product-item");
               productItem.innerHTML = `     
-                  <div class="border">
+                  <div class="border px-1">
                       <div><img src="${item.image}" alt="${item.name}" class="w-[300px] h-[300px]"></div>
                       <div class="font-semibold text-xl pb-1.5 hover:text-[#0068C8] cursor-pointer">${item.name}</div>
                       <div class="pb-2.5">
@@ -547,13 +551,5 @@
       window.location.href = viewUrl;
   }
 </script>
-
-
-
-
-  
-  
-  
 </body>
-
 </html>
