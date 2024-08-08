@@ -14,41 +14,26 @@
 <body>
     <!----------------------Top navbar-------------->
 
-    <nav class="flex justify-around items-center py-4">
-        <p>TechExp</p>
-        <form class=" flex border-2 border-indigo-500 w-5/12 rounded">
-            <input name="keyword" class="flex-1 px-2" placeholder="Search this site">
-            <select class=" py-2 px-4 border-l-2 border-indigo-500">
-                <option> All Categories</option>
-                <option value="mobile"> Mobile</option>
-                <option value="headset"> Headset</option>
-                <option value="speaker"> Speaker</option>
-                <option value="Led"> LED Tv</option>
-            </select>
-            <button class="bg-indigo-500 py-2 px-4 text-white">
-                <i class="ri-search-line"></i>
-            </button>
-        </form>
-        <div class="flex gap-6">
-            <button class="text-lg relative" id="account">
-                <i class="ri-user-line"></i>
-                Account
-                <div class="bg-white border rounded  w-[150px]  py-3 absolute top-10 right-0 flex flex-col items-start "
-                    id="account-menu">
-                    <a href="./register.html"
-                        class="text-sm w-full text-left hover:bg-gray-300 px-3 py-2  ">Register</a>
-                    <a href="#" class="text-sm w-full text-left hover:bg-gray-300 px-3 py-2">Checkout</a>
-                    <a href="./login.html" class="text-sm w-full text-left hover:bg-gray-300 px-3 py-2">Login</a>
-                </div>
-            </button>
-            <button class="text-lg">
-                <i class="ri-heart-line"></i>
-                Wishlist
-            </button>
-            <button class="text-lg">
-                <i class="ri-shopping-cart-line"></i>
-                Cart
-            </button>
+    <nav class="flex justify-around items-center py-4  flex-wrap flex-col md:flex-col lg:flex-row">
+        <div class="lg:flex justify-around items-center gap-40 py-4">
+          <a  href="#"class="font-bold text-2xl sm:items-center cursor-pointer" id="logo">TechExp</a>
+          <div class="md:flex items-center justify-end md:gap-x-4">
+            <form class="flex-1 flex items-center border-2 border-[#0068C8] rounded">
+              <input name="keyword" class="flex-1 items-start justify-stretch md:pr-44 pl-2 py-2"
+                placeholder="Search this site">
+                <select title="Select category" class="py-2 px-4 border-l-2 border-[#0068C8] hidden md:block">
+                  <option>All Categories</option>
+                  <option value="mobile">Mobile</option>
+                  <option value="headset">Headset</option>
+                  <option value="speaker">Speaker</option>
+                  <option value="Led">LED Tv</option>
+                </select>
+              <button class="bg-[#0068C8] py-2 px-4 text-white flex items-center">
+                <i class="ri-search-line mr-2"></i>
+                <span class="hidden md:inline">Search</span>
+              </button>
+            </form>
+          </div>
         </div>
         <div class="flex gap-6">
           <button class="text-xl relative" id="account">
@@ -71,24 +56,24 @@
     <!--------------------Main navbar--------------->
     <nav class="flex justify-around items-center py-4">
         <button class="border text-xl w-12 h-12">
-            <i class="ri-menu-3-fill"></i>
+          <i class="ri-menu-3-fill"></i>
         </button>
         <ul class="flex gap-12">
-            <li><a href="./index.html" class="text-md font-semibold">Home</a></li>
-            <li><a href="#" class="text-md font-semibold">Category</a></li>
-            <li><a href="#" class="text-md font-semibold">Products</a></li>
-            <li><a href="#" class="text-md font-semibold">Blog</a></li>
-            <li><a href="#" class="text-md font-semibold">Contact</a></li>
+          <li><a href="#" class="text-md font-semibold">Home</a></li>
+          <li><a href="./testimonials.html" class="text-md font-semibold">Testimonials</a></li>
+          <li><a href="#producthere" class="text-md font-semibold">Products</a></li>
+          <li><a href="./blog.html" class="text-md font-semibold">Blog</a></li>
+          <li><a href="./contact.html" class="text-md font-semibold">Contact</a></li>
         </ul>
         <select class="border py-2 px-16 rounded">
-            <option>Nepal </option>
-            <option>India </option>
-            <option>Usa </option>
-            <option>China </option>
-            <option>Germany </option>
-
+          <option>Nepal </option>
+          <option>India </option>
+          <option>Usa </option>
+          <option>China </option>
+          <option>Germany </option>
+  
         </select>
-    </nav>
+      </nav>
 
     <!--Page title-->
     <div class="bg-[#E4F2ED] flex justify-between px-32 py-4 items-center">
