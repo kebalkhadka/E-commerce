@@ -6,7 +6,7 @@
             "category": "Laptop",
       
             "price": "1100.00",
-            "image": "../images/macbook.jpg"
+            "image": "./images/macbook.jpg"
             
         },
         {
@@ -14,49 +14,49 @@
             "name": "Dell Laptop",
             "category": "Laptop",
             "price": "1200.00",
-            "image": "../images/laptop3.jpg"
+            "image": "./images/laptop3.jpg"
         },
         {
             "id": "3",
             "name": "Samsung S23-ultra",
             "category": "Phone",
             "price": "999",
-            "image": "../images/s-24ultra.png"
+            "image": "./images/s-24ultra.png"
         },
         {
             "id": "4",
             "name": "Iphone",
             "category": "Phone",
             "price": "750",
-            "image": "../images/iphone2.jpg"
+            "image": "./images/iphone2.jpg"
         },
         {
             "id": "5",
             "name": "Airpods",
             "category": "Earphone",
             "price": "199",
-            "image": "../images/Airpods.jpg"
+            "image": "./images/Airpods.jpg"
         },
         {
             "id": "6",
             "name": "Speaker",
             "category": "Speaker",
             "price": "110",
-            "image": "../images/speaker.jpg"
+            "image": "./images/speaker.jpg"
         },
         {
             "id": "7",
             "name": "Monitor",
             "category": "LED",
             "price": "225",
-            "image": "../images/monitor.jpg"
+            "image": "./images/monitor.jpg"
         },
         {
             "id": "8",
             "name": "Headphone",
             "category": "Earphone",
             "price": "210",
-            "image": "../images/headphone.png"
+            "image": "./images/headphone.png"
         }
 
     ]

@@ -77,3 +77,9 @@ var x = setInterval(function(){
 }, 1000
 ); // Update the timer every 1 second (1000 milliseconds)
 
+const menuBtn = document.getElementById('menu-btn');
+const navLinks = document.getElementById('nav-links');
+
+menuBtn.addEventListener('click', () => {
+  navLinks.classList.toggle('hidden');
+});
